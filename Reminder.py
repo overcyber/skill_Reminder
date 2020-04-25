@@ -448,12 +448,12 @@ class Reminder(AliceSkill):
 
 
 	def cleanupDeadTimers(self):
-		i = 0
+		loopCounter = 0
 
-		while i <= len(self._dataBaseList) - 1:
-			if i == 0:
+		while loopCounter <= len(self._dataBaseList) - 1:
+			if loopCounter == 0:
 				self._eventType = 'Reminder'
-			elif i == 1:
+			elif loopCounter == 1:
 				self._eventType = 'Timer'
 			else:
 				self._eventType = 'Alarm'
@@ -465,7 +465,7 @@ class Reminder(AliceSkill):
 
 				if x < epochTimeNow:
 					self.DatabaseManager.delete(
-						tableName=self._dataBaseList[i],
+						tableName=self._dataBaseList[loopCounter],
 						query='DELETE FROM :__table__ WHERE timestamp < :tmpTimestamp',
 						values={'tmpTimestamp': epochTimeNow},
 						callerName=self.name
@@ -473,8 +473,8 @@ class Reminder(AliceSkill):
 					i += 1
 			if i > 0:
 				self.viewTableValues()
-				self.logDebug(f'Just deleted {i} redundant {self._eventType} from {self._dataBaseList[i]}')
-			i += 1
+				self.logDebug(f'Just deleted {i} redundant {self._eventType} from {self._dataBaseList[loopCounter]}')
+			loopCounter += 1
 
 
 	# confirmed that stop event works
