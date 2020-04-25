@@ -615,7 +615,7 @@ class Reminder(AliceSkill):
 
 		path = event
 		if 'Reminder' in event:
-			soundFile = 'fanfare2.wav'
+			soundFile = 'Reminder.wav'
 		elif 'Timer' in event:
 			soundFile = 'Timer.wav'
 		else:
