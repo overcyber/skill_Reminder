@@ -1,0 +1,136 @@
+{
+	"respondDeleteAll": {
+		"default": [
+			"No worries i have deleted the {}'s for you",
+			"All sorted, cleaned up all of your {}'s like no one was here",
+			"The tables clean captain. No more {}'s stored",
+			"{}'s deleted. Housework done. Think i'll go polish my resistors now"
+		],
+		"short": [
+			"Sorted",
+			"Done"
+		]
+	},
+	"respondDelete": {
+		"default": [
+			"No worries I have deleted that {} for you",
+			"All sorted, cleaned up your {}'s like no one was here",
+			"Wow, I not only deleted that {} i sent it on a mission to mars",
+			"Seems I did that correctly. That {} is not there now "
+		],
+		"short": [
+			"Sorted",
+			"Done"
+		]
+	},
+	"respondFoodTimer": {
+		"default": [
+			"Hey chef, We're half way through the timer. Time to check on your food ",
+			"Attention chef. Check on your food in case it needs stirred or turned",
+			"Tap, tap, tap.<break time=\\\"250ms\\\"/>  Don't know if this mic's working.<break time=\\\"150ms\\\"/>  Ummmm Attention shoppers, foodcheck on isle 3 please",
+			"Do I smell something burning ? Might pay to go check on your food now chef"
+		],
+		"short": [
+			"Check your food",
+			"Food check, isle 3"
+		]
+	},
+	"respondToANoReply": {
+		"default": [
+			"ok I'll go back to dusting off my circuit board and forget about that {}",
+			"Sure, I'm forgetting you even said a word",
+			"Ok, I'm busy heating up a raspberry pie anyway"
+		],
+		"short": [
+			"ok, forgotton",
+			"Sure"
+		]
+	},
+	"respondSetReminder": {
+		"default": [
+			"Reminder has been set for {}",
+			"I will remind you on {0} about the reminder {1}"
+		],
+		"short": [
+			"Reminder is set",
+			"Sorted"
+		]
+	},
+	"respondReminderMessage": {
+		"default": [
+			"What message would you like me to set for this {}",
+			"What topic would you like me to call this {}"
+		],
+		"short": [
+			"whats the message!",
+			"what's the {} message"
+		]
+	},
+	"respondSetDuration": {
+		"default": [
+			"What time do you want the {} set for ?",
+			"When do you want the {} to re occur ? "
+		],
+		"short": [
+			"For when ?",
+			"For what time or date ?"
+		]
+	},
+	"respondReminder": {
+		"default": [
+			"You have a {0} with the message {1}",
+			"This is your {0} for {1} "
+		],
+		"short": [
+			"Reminder {}"
+		]
+	},
+	"respondConfirmed": {
+		"default": [
+			"I've just set that {0} for you with the topic of {1}. You'll hear from me again in {2}",
+			"I will remind you of {1} in {2}"
+		],
+		"short": [
+			"Reminder {0} is set "
+		]
+	},
+	"respondReminder1": [
+		"Sure thing, you only have the one active {0} message called {1}. So i'll deal with that one ",
+		"No problem, the {0} message called {1} will be dealt with straight away ",
+		"okie dokie, the {0} with the message {1} is in my sights and will deal to that one"
+	],
+	"respondReminder2": [
+		"Please repeat the number of the item you want me to work on from the following list. The {0} number 1 with the message {1} <break time=\\\"250ms\\\"/>or <break time=\\\"250ms\\\"/> number 2. {2}.",
+		"Alrighty. Choose a number from the following list. The {0} number 1 with the message {1} <break time=\\\"250ms\\\"/>or <break time=\\\"250ms\\\"/> number 2. {2}."
+	],
+	"respondReminder3": [
+		"Please repeat the number of the item you want me to work on from the following list. The {0} number 1 with the message {1} <break time=\\\"250ms\\\"/>or <break time=\\\"250ms\\\"/> number 2. {2}.<break time=\\\"250ms\\\"/> or number 3 {3} ",
+		"Alrighty. Choose a number from the following list. The {0} number 1 with the message {1} <break time=\\\"250ms\\\"/>or <break time=\\\"250ms\\\"/> number 2. {2}.<break time=\\\"250ms\\\"/> or number 3 {3} "
+	],
+	"respondReminder4": [
+		"Please repeat the number of the item you want me to work on from the following list. The {0} number 1 with the message {1} <break time=\\\"250ms\\\"/>or <break time=\\\"250ms\\\"/> number 2. {2}.<break time=\\\"250ms\\\"/> or number 3 {3} <break time=\\\"250ms\\\"/> or number 4 {4} ",
+		"Alrighty. Choose a number from the following list. The {0} number 1 with the message {1} <break time=\\\"250ms\\\"/>or <break time=\\\"250ms\\\"/> number 2. {2}.<break time=\\\"250ms\\\"/> or number 3 {3} <break time=\\\"250ms\\\"/> or number 4 {4} "
+	],
+	"respondReminder5": [
+		"Please repeat the number of the item you want me to work on from the following list. The {0} number 1 with the message {1} <break time=\\\"250ms\\\"/>or <break time=\\\"250ms\\\"/> number 2. {2}.<break time=\\\"250ms\\\"/> or number 3 {3} <break time=\\\"250ms\\\"/> or number 4 {4} <break time=\\\"250ms\\\"/> or number 5 {5}",
+		"Alrighty. Choose a number from the following list. The {0} number 1 with the message {1} <break time=\\\"250ms\\\"/>or <break time=\\\"250ms\\\"/> number 2. {2}.<break time=\\\"250ms\\\"/> or number 3 {3} <break time=\\\"250ms\\\"/> or number 4 {4} <break time=\\\"250ms\\\"/> or number 5 {5}"
+	],
+	"respondReminder6": [
+		"Please repeat the number of the item you want me to work on from the following list. The (0} number 1 with the message {1} <break time=\\\"250ms\\\"/>or <break time=\\\"250ms\\\"/> number 2. {2}.<break time=\\\"250ms\\\"/> or number 3 {3} <break time=\\\"250ms\\\"/> or number 4 {4} <break time=\\\"250ms\\\"/> or number 5 {5} <break time=\\\"250ms\\\"/> or number 6 {6} ",
+		"Alrighty. Choose a number from the following list. The (0} number 1 with the message {1} <break time=\\\"250ms\\\"/>or <break time=\\\"250ms\\\"/> number 2. {2}.<break time=\\\"250ms\\\"/> or number 3 {3} <break time=\\\"250ms\\\"/> or number 4 {4} <break time=\\\"250ms\\\"/> or number 5 {5} <break time=\\\"250ms\\\"/> or number 6 {6} "
+	],
+	"respondReminder7": [
+		"Please repeat the number of the item you want me to work on from the following list. The {0} number 1 with the message {1} <break time=\\\"250ms\\\"/>or <break time=\\\"250ms\\\"/> number 2. {2}.<break time=\\\"250ms\\\"/> or number 3 {3} <break time=\\\"250ms\\\"/> or number 4 {4} <break time=\\\"250ms\\\"/> or number 5 {5} <break time=\\\"250ms\\\"/> or number 6 {6} <break time=\\\"250ms\\\"/> or number 7 {7} ",
+		"Alrighty. Choose a number from the following list. The {0} number 1 with the message {1} <break time=\\\"250ms\\\"/>or <break time=\\\"250ms\\\"/> number 2. {2}.<break time=\\\"250ms\\\"/> or number 3 {3} <break time=\\\"250ms\\\"/> or number 4 {4} <break time=\\\"250ms\\\"/> or number 5 {5} <break time=\\\"250ms\\\"/> or number 6 {6} <break time=\\\"250ms\\\"/> or number 7 {7} "
+	],
+	"respondReminder8": [
+		"Please repeat the number of the item you want me to work on from the following list. The {0} number 1 with the message {1} <break time=\\\"250ms\\\"/>or <break time=\\\"250ms\\\"/> number 2. {2}.<break time=\\\"250ms\\\"/> or number 3 {3} <break time=\\\"250ms\\\"/> or number 4 {4} <break time=\\\"250ms\\\"/> or number 5 {5} <break time=\\\"250ms\\\"/> or number 6 {6} <break time=\\\"250ms\\\"/> or number 7 {7} <break time=\\\"250ms\\\"/> or number 8 {8}",
+		"Alrighty. Choose a number from the following list. The {0} number 1 with the message {1} <break time=\\\"250ms\\\"/>or <break time=\\\"250ms\\\"/> number 2. {2}.<break time=\\\"250ms\\\"/> or number 3 {3} <break time=\\\"250ms\\\"/> or number 4 {4} <break time=\\\"250ms\\\"/> or number 5 {5} <break time=\\\"250ms\\\"/> or number 6 {6} <break time=\\\"250ms\\\"/> or number 7 {7} <break time=\\\"250ms\\\"/> or number 8 {8}"
+	],
+	"respondHighMessageLength": [
+		"I'm sorry but currently you have more than 8 {}'s so i can't do that operation just yet. When i'm a big girl i hope to be able to count past 8",
+		"Sorry but i can currently only process upto 8 {}'s. I hope to achieve more in future skill upgrades",
+		"Sorry but provisions have only been made to allow me to recite up to 8 {}'s "
+	]
+}
+
