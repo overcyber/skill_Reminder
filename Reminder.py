@@ -19,30 +19,36 @@ class Reminder(AliceSkill):
 			Also one main Method which allows switching between the three events (Reminder/Timer/Alarm) is the
 		- setEventType() method. This allows the skill to determine what of the 3 events we are dealing with
 	"""
+	INTERNAL_ID = 'internalId TEXT NOT NULL'
+	DB_MESSAGE = 'message TEXT NOT NULL'
+	DB_TIMESTAMP = 'timestamp INTEGER NOT NULL'
+	DB_SITE_ID = 'SiteID TEXT NOT NULL'
+	DB_EVENT_TYPE = 'EventType TEXT NOT NULL'
+
 	_REMINDERDBNAME = 'MyReminders'
 	_TIMERDBNAME = 'MyTimer'
 	_ALARMDBNAME = 'MyAlarm'
 	_DATABASE = {
 		_REMINDERDBNAME: [
-			'internalId TEXT NOT NULL',
-			'message TEXT NOT NULL',
-			'timestamp INTEGER NOT NULL',
-			'SiteID TEXT NOT NULL',
-			'EventType TEXT NOT NULL'
+			INTERNAL_ID,
+			DB_MESSAGE,
+			DB_TIMESTAMP,
+			DB_SITE_ID,
+			DB_EVENT_TYPE
 		],
 		_TIMERDBNAME   : [
-			'internalId TEXT NOT NULL',
-			'message TEXT NOT NULL',
-			'timestamp INTEGER NOT NULL',
-			'SiteID TEXT NOT NULL',
-			'EventType TEXT NOT NULL'
+			INTERNAL_ID,
+			DB_MESSAGE,
+			DB_TIMESTAMP,
+			DB_SITE_ID,
+			DB_EVENT_TYPE
 		],
 		_ALARMDBNAME   : [
-			'internalId TEXT NOT NULL',
-			'message TEXT NOT NULL',
-			'timestamp INTEGER NOT NULL',
-			'SiteID TEXT NOT NULL',
-			'EventType TEXT NOT NULL'
+			INTERNAL_ID,
+			DB_MESSAGE,
+			DB_TIMESTAMP,
+			DB_SITE_ID,
+			DB_EVENT_TYPE
 		]
 	}
 	_INTENT_ADD_REMINDER = Intent('ReminderEvent')
