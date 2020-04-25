@@ -9,7 +9,6 @@ from core.base.SuperManager import SuperManager
 
 
 class Reminder(AliceSkill):
-
 	"""
 	Author: LazzaAU. This skill utilises these main methods for functional operation
 		- addReminder initiates the reminder process between user and Alice
@@ -142,7 +141,6 @@ class Reminder(AliceSkill):
 					currentDialogState='AddedTheDateOrDuration',
 					slot='ReminderDateAndTime'
 				)
-
 
 
 	def processTheSpecifiedTime(self, session: DialogSession):
@@ -344,7 +342,6 @@ class Reminder(AliceSkill):
 		self._TimerEventType = [x[4] for x in self._dbTableValues]  # get event type from db
 
 
-
 	# Returns the remaining time left on a choosen timer
 	def getTimeRemaining(self, session: DialogSession):
 		convertedTime = self.convertEpochMinusNowToHumanReadableTime()
@@ -491,6 +488,7 @@ class Reminder(AliceSkill):
 		)
 		self.cleanupDeadTimers()
 
+
 	# Used to Convert the Database Timestamp into seconds
 	def convertEpochMinusNowToSeconds(self, epochSeconds = None):
 		epochTimeNow = datetime.now().timestamp()  # Returns the epoch time for right now
@@ -555,6 +553,7 @@ class Reminder(AliceSkill):
 				callerName=self.name
 			)
 		self.cleanupDeadTimers()
+
 
 	# This does a 5 minute check of the stored timers and if a timer is within 320 seconds of activating
 	# then we initiate the actual timer thread
@@ -653,7 +652,6 @@ class Reminder(AliceSkill):
 			self.getItemFromList(session)
 
 
-
 	# Used for when user asks how long left on timer - required
 	@IntentHandler('ReminderRemaining')
 	def remainingTimeReminderIntent(self, session: DialogSession):
@@ -673,6 +671,7 @@ class Reminder(AliceSkill):
 	@IntentHandler('ReminderTime')
 	def addRemiderIntent(self, session: DialogSession):
 		pass
+
 
 	@IntentHandler('ReminderMessage')
 	def addReminderIntent(self, session: DialogSession):

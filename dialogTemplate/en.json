@@ -479,8 +479,7 @@
 				"{how long:=>AlarmRemainingTime} is left on my {alarm:=>AlarmSlot}",
 				"What time is {remaining:=>AlarmRemainingTime} on the {alarm:=>AlarmSlot}",
 				"what {time's left:=>AlarmRemainingTime} on the {alarm:=>AlarmSlot}",
-				"how much time is {remaining:=>AlarmRemainingTime} on my {alarm:=>AlarmSlot}",
-				"{how long:=>AlarmRemainingTime} is {remaining:=>AlarmRemainingTime} on my {alarm:=>AlarmSlot}"
+				"how much time is {remaining:=>AlarmRemainingTime} on my {alarm:=>AlarmSlot}"
 			],
 			"slots": [
 				{
@@ -541,7 +540,6 @@
 				"{remove all:=>ReminderDeleteAll} of the {reminders:=>ReminderSlot}",
 				"can you {cancel:=>ReminderDelete} my {reminders:=>ReminderSlot} please",
 				"{remove all:=>ReminderDeleteAll} current {reminders:=>ReminderSlot}",
-				"{delete all:=>ReminderDeleteAll} current {reminders:=>ReminderSlot}",
 				"{delete:=>ReminderDelete} my {timer:=>TimerSlot}",
 				"{remove:=>ReminderDelete} a {timer:=>TimerSlot}",
 				"{delete all:=>ReminderDeleteAll} of the {timer:=>TimerSlot}",
@@ -551,12 +549,10 @@
 				"{remove all:=>ReminderDeleteAll} of the {timers:=>TimerSlot}",
 				"can you {cancel:=>ReminderDelete} my {timers:=>TimerSlot} please",
 				"{remove all:=>ReminderDeleteAll} current {timers:=>TimerSlot}",
-				"{delete all:=>ReminderDeleteAll} current {timers:=>TimerSlot}",
 				"{delete:=>ReminderDelete} my {alarm:=>AlarmSlot}",
 				"{remove:=>ReminderDelete} a {alarm:=>AlarmSlot}",
 				"{delete all:=>ReminderDeleteAll} of the {alarm:=>AlarmSlot}",
 				"can you {delete all:=>ReminderDeleteAll} of my {alarms:=>AlarmSlot} please",
-				"{delete all:=>ReminderDeleteAll} current {alarms:=>AlarmSlot}",
 				"{remove all:=>ReminderDeleteAll} of my {alarms:=>AlarmSlot}",
 				"{remove all:=>ReminderDeleteAll} of the {alarms:=>AlarmSlot}",
 				"can you {cancel:=>ReminderDelete} my {alarms:=>AlarmSlot} please",
@@ -610,7 +606,6 @@
 				"reminder {two:=>Number}",
 				"reminder {4:=>Number}",
 				"reminder {3:=>Number}",
-				"reminder number {1:=>Number}",
 				"Timer number {2:=>Number}",
 				"timer {2:=>Number}",
 				"timer number {three:=>Number}",
