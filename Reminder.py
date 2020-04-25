@@ -600,7 +600,7 @@ class Reminder(AliceSkill):
 				vocalSeconds = str(timedelta(seconds=round(convertedTime)))
 				self.logDebug(f'You have a {self._TimerEventType} with {vocalSeconds} left on it')
 
-				if convertedTime < 260.0:
+				if convertedTime < 230.0:
 					self.ThreadManager.doLater(
 						interval=convertedTime,
 						func=self.runReminder,
