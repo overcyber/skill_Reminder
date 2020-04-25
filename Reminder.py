@@ -1,4 +1,4 @@
-from datetime import datetime, timedelta, time
+from datetime import datetime, timedelta
 import time
 from pathlib import Path
 from core.base.model.AliceSkill import AliceSkill
@@ -244,25 +244,24 @@ class Reminder(AliceSkill):
 		self.processAndStoreReminder(session, secs)
 
 
-
 	def askIfTheDetailsAreCorrect(self, session: DialogSession, secs = None):
 
-		self._reminderMessage = session.slotRawValue('ReminderMessage')
-		SpecifiedTime = time.strftime('%H:%M:%S', time.gmtime(secs))
+		#	self._reminderMessage = session.slotRawValue('ReminderMessage')
+		# SpecifiedTime = time.strftime('%H:%M:%S', time.gmtime(secs))
 		# Disabled confirmation code for setting a reminder... was bit over the top
 		# but left it here incase of user request (removed A from addMessageToReminder
-		if 'ddMessageToReminder' in session.currentState:
-			self.continueDialog(
-				sessionId=session.sessionId,
-				text=f'ok this is what i heard. You would like a {self._eventType} set for {SpecifiedTime} with a topic of {self._reminderMessage}. Is that correct ?',
-				intentFilter=[self._INTENT_ANSWER_YES_OR_NO],
-				previousIntent='AddMessageToReminder',
-				currentDialogState='ConfirmIfMessageAndTimeCorrect',
-				probabilityThreshold=0.1
-			)
-			return secs
+		#	if 'ddMessageToReminder' in session.currentState:
+		#		self.continueDialog(
+		#			sessionId=session.sessionId,
+		#			text=f'ok this is what i heard. You would like a {self._eventType} set for {SpecifiedTime} with a topic of {self._reminderMessage}. Is that correct ?',
+		#			intentFilter=[self._INTENT_ANSWER_YES_OR_NO],
+		#			previousIntent='AddMessageToReminder',
+		#			currentDialogState='ConfirmIfMessageAndTimeCorrect',
+		#			probabilityThreshold=0.1
+		#		)
+		#		return secs
 
-		elif 'ReminderDeleteAll' in session.slots:
+		if 'ReminderDeleteAll' in session.slots:
 			self.continueDialog(
 				sessionId=session.sessionId,
 				text=f'Are you sure you want to delete all of your {self._eventType} ?',
@@ -382,9 +381,8 @@ class Reminder(AliceSkill):
 				sessionId=session.sessionId,
 				text=self.randomTalk('respondHighMessageLength', replace=[self._eventType])
 			)
-		messageInt = str(messageInt)  # convert the int to a string for joining
-		textFilePointer = 'respondReminder' + messageInt
-		textFilePointer = str(textFilePointer)  # textFilePointer is used to append a number of messages to correspond to the talk file {}
+
+		textFilePointer = f'respondReminder{messageInt}'
 
 		if len(self._dbMessageList) == 0:
 			self.endDialog(
