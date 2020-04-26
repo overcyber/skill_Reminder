@@ -120,13 +120,12 @@ class Reminder(AliceSkill):
 		super().onStart()
 		self.logInfo(f'Doing database maintenance for the Reminder skill')
 		self.cleanupDeadTimers()
-		self.onFiveMinute()
+		self.fiveMinuteRunCode()
 
 
 	# This is called directly by the mapping for intents because DURATION was specified
 	def addReminder(self, session: DialogSession):
 		self.setEventType(session)
-		self.logDebug(f'Slots = {session.slots}')
 
 		# If theres no reminder date or duration specified then ask for a message
 		if self._eventType + 'DateAndTime' in session.slots or 'Duration' in session.slots:
@@ -193,12 +192,11 @@ class Reminder(AliceSkill):
 		# Set event type for later recall from db when dofiveMinute is called after a reboot
 		self._TimerEventType = self._eventType
 
-		if secondsToFloat < 298:
+		if secondsToFloat < 299:
 			self.ThreadManager.doLater(
 				interval=secondsToFloat,
 				func=self.runReminder,
 				args=[self._eventType, self._reminderMessage]
-
 			)
 
 		# Alice Confirming that the Reminder has been set ..........................................................
@@ -220,8 +218,6 @@ class Reminder(AliceSkill):
 		self.reminderSound(event)
 		time.sleep(0.5)
 		self.say(self.randomTalk(text='respondReminder', replace=[event, savedMessage]), siteId=self._theSiteId)
-		time.sleep(0.5)
-		self.cleanupDeadTimers()
 
 
 	def foodReminder(self):
@@ -253,7 +249,7 @@ class Reminder(AliceSkill):
 		if 'ReminderDeleteAll' in session.slots:
 			self.continueDialog(
 				sessionId=session.sessionId,
-				text=f'Are you sure you want to delete all of your {self._eventType} ?',
+				text=self.randomTalk('respondAskConfirmation', replace=[self._eventType]),
 				intentFilter=[self._INTENT_ANSWER_YES_OR_NO],
 				currentDialogState='ConfirmIfDeletingAllMessages',
 				probabilityThreshold=0.1
@@ -261,17 +257,9 @@ class Reminder(AliceSkill):
 
 
 	# do something in responce to a yes or no reply
-	def actionFromYesNoAnswer(self, session: DialogSession, secs = None):
+	def actionFromYesNoAnswer(self, session: DialogSession):
 
-		if 'ConfirmIfMessageAndTimeCorrect' in session.currentState:
-			if self.Commons.isYes(session):
-				self.processAndStoreReminder(session, secs)
-			else:
-				self.endDialog(
-					sessionId=session.sessionId,
-					text=f'Ok i won\'t continue with the {self._eventType} please try again'
-				)
-		elif 'ConfirmIfDeletingAllMessages' in session.currentState:
+		if 'ConfirmIfDeletingAllMessages' in session.currentState:
 
 			if self.Commons.isYes(session):
 				self.deleteRequestedReminder(session)
@@ -327,8 +315,8 @@ class Reminder(AliceSkill):
 
 	# This sets "self._dbTableValues" to a list of all current Database table values
 	def viewTableValues(self):
-
 		# self.updateInternalIdNumberOfDb()  # resets internalId column to rowid value
+
 		remTableList = []
 		for row in self.databaseFetch(
 				tableName=self._activeDataBase,
@@ -336,9 +324,9 @@ class Reminder(AliceSkill):
 				values={},
 				method='all'
 		):
+
 			if tuple(row):
-				remTableList = list(tuple(row))
-				remTableList.append(list(tuple(row)))
+				remTableList.append(tuple(row))
 
 		self._dbTableValues = remTableList  # Get the entire Reminder Database table
 		self._dbSiteList = [x[3] for x in self._dbTableValues]  # get list of SiteId for use on a Alice restart
@@ -346,6 +334,7 @@ class Reminder(AliceSkill):
 		self._dbMessageList = [x[1] for x in self._dbTableValues]  # get the list of messages
 		self._dbRowIdList = [x[0] for x in self._dbTableValues]  # get The list of row ID's
 		self._TimerEventType = [x[4] for x in self._dbTableValues]  # get event type from db
+		self.cleanupDeadTimers()
 
 
 	# Returns the remaining time left on a choosen timer
@@ -354,7 +343,7 @@ class Reminder(AliceSkill):
 
 		self.endDialog(
 			sessionId=session.sessionId,
-			text=f'there is {convertedTime} left on that {self._eventType}',
+			text=self.randomTalk('respondTimeRemaining', replace=[convertedTime, self._eventType]),
 			siteId=session.siteId
 		)
 
@@ -373,7 +362,7 @@ class Reminder(AliceSkill):
 		if len(self._dbMessageList) == 0:
 			self.endDialog(
 				sessionId=session.sessionId,
-				text=f'You have no active {self._eventType}, zip, ziltch, nada'
+				text=self.randomTalk('respondNoActive', replace=[self._eventType])
 			)
 
 		elif len(self._dbMessageList) == 1:
@@ -439,7 +428,7 @@ class Reminder(AliceSkill):
 			else:
 				self.continueDialog(
 					sessionId=session.sessionId,
-					text=f'I didn\'t hear a number, please try again ',
+					text='respondNoNumber',
 					intentFilter=[self._INTENT_SELECT_ITEM],
 					currentDialogState='askWhatItemFromList'
 				)
@@ -448,36 +437,29 @@ class Reminder(AliceSkill):
 
 
 	def cleanupDeadTimers(self):
-		loopCounter = 0
 
-		while loopCounter <= len(self._dataBaseList) - 1:
-			if loopCounter == 0:
-				self._eventType = 'Reminder'
-			elif loopCounter == 1:
-				self._eventType = 'Timer'
-			else:
-				self._eventType = 'Alarm'
+		i = 0
+
+		for x in self._dbTimeStampList:  # x = a individual timestamp from _dbTimeStampList
+
+			epochTimeNow = datetime.now().timestamp()  # Returns the epoch time for right now
+
+			if x < epochTimeNow:
+
+				self.DatabaseManager.delete(
+					tableName=self._activeDataBase,
+					query='DELETE FROM :__table__ WHERE timestamp <= :tmpTimestamp',
+					values={'tmpTimestamp': epochTimeNow},
+					callerName=self.name
+				)
+				i += 1
+
+		if i > 0:
 			self.viewTableValues()
-			i = 0
-			for x in self._dbTimeStampList:  # x = a individual timestamp from _dbTimeStampList
-
-				epochTimeNow = datetime.now().timestamp()  # Returns the epoch time for right now
-
-				if x < epochTimeNow:
-					self.DatabaseManager.delete(
-						tableName=self._dataBaseList[loopCounter],
-						query='DELETE FROM :__table__ WHERE timestamp < :tmpTimestamp',
-						values={'tmpTimestamp': epochTimeNow},
-						callerName=self.name
-					)
-					i += 1
-			if i > 0:
-				self.viewTableValues()
-				self.logDebug(f'Just deleted {i} redundant {self._eventType} from {self._dataBaseList[loopCounter]}')
-			loopCounter += 1
+			self.logDebug(f'Just deleted {i} redundant event/s from {self._activeDataBase}')
 
 
-	# confirmed that stop event works
+	# This stops a current timer on request
 	def userAskedToStopReminder(self, session: DialogSession):
 		self.setEventType(session)
 
@@ -526,7 +508,7 @@ class Reminder(AliceSkill):
 		return str(timedelta(seconds=round(convertedToSeconds)))
 
 
-	# I believe this to be fully functional for now, deletes a Item from DB the cleans up the row id's
+	# This deletes a Item from DB the cleans up the row id's
 	def deleteRequestedReminder(self, session: DialogSession):
 		self.setEventType(session)
 
@@ -564,7 +546,12 @@ class Reminder(AliceSkill):
 	# This does a 5 minute check of the stored timers and if a timer is within 320 seconds of activating
 	# then we initiate the actual timer thread
 	def onFiveMinute(self):
+		self.fiveMinuteRunCode()
+
+
+	def fiveMinuteRunCode(self):
 		self.viewTableValues()
+
 		i = 0
 
 		while i <= len(self._dataBaseList) - 1:
@@ -587,15 +574,18 @@ class Reminder(AliceSkill):
 				float(convertedTime)
 				vocalSeconds = str(timedelta(seconds=round(convertedTime)))
 				self.logDebug(f'You have a {self._TimerEventType} with {vocalSeconds} left on it')
+				cleanUpSeconds = convertedTime + 20
 
-				if convertedTime < 230.0:
+				if convertedTime < 299.0:
 					self.ThreadManager.doLater(
 						interval=convertedTime,
 						func=self.runReminder,
 						args=[self._TimerEventType, timerMessage]
 					)
-					time.sleep(0.5)
-					self.cleanupDeadTimers()
+					self.ThreadManager.doLater(
+						interval=cleanUpSeconds,
+						func=self.viewTableValues()
+					)
 			i += 1
 
 
@@ -631,7 +621,6 @@ class Reminder(AliceSkill):
 			self._eventType = 'Alarm'
 			self._activeDataBase = self._ALARMDBNAME
 
-		# self.logInfo(f'Setting the current event to **{self._eventType}**')
 		self.viewTableValues()
 
 
@@ -676,7 +665,7 @@ class Reminder(AliceSkill):
 
 	@IntentHandler('ReminderTime')
 	def addRemiderIntent(self, session: DialogSession):
-		pass
+		pass  # this method is likely to be removed in the near future. No need for it
 
 
 	@IntentHandler('ReminderMessage')
