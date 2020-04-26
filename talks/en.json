@@ -1,4 +1,16 @@
 {
+	"respondTimeRemaining": {
+		"default": [
+			"There is {0} time left on that {1}",
+			"Please hold the line while i check. Seems you have {0} left on that {1}",
+			"You have a grand total of {0} left on the {1}",
+			"For that {1} you have {0} left to go. Don't worry i'll keep you updated"
+		],
+		"short": [
+			"{0}",
+			"The {1} has {0} left"
+		]
+	},
 	"respondDeleteAll": {
 		"default": [
 			"No worries i have deleted the {}'s for you",
@@ -131,6 +143,15 @@
 		"I'm sorry but currently you have more than 8 {}'s so i can't do that operation just yet. When i'm a big girl i hope to be able to count past 8",
 		"Sorry but i can currently only process upto 8 {}'s. I hope to achieve more in future skill upgrades",
 		"Sorry but provisions have only been made to allow me to recite up to 8 {}'s "
+	],
+	"respondNoActive": [
+		"You currently have no active {}'s"
+	],
+	"respondNoNumber": [
+		"I didn't hear a number. Please try again"
+	],
+	"respondAskConfirmation": [
+		"Are you sure you want to delete all of your {}'s ?"
 	]
 }
 
