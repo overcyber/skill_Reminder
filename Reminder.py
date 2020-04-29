@@ -126,7 +126,6 @@ class Reminder(AliceSkill):
 	# This is called directly by the mapping for intents because DURATION was specified
 	def addReminder(self, session: DialogSession):
 		self.setEventType(session)
-
 		# If theres no reminder date or duration specified then ask for a message
 		if self._eventType + 'DateAndTime' in session.slots or 'Duration' in session.slots:
 			self.continueDialog(
@@ -634,6 +633,7 @@ class Reminder(AliceSkill):
 	@IntentHandler('SetUpTimer')
 	def setTimerIntent(self, session: DialogSession):
 		self.addReminder(session)
+		self.logWarning(f'Request was >> {session.slotsAsObjects} ')
 
 
 	# Used for deleting a item(s) - required
