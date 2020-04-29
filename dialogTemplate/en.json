@@ -351,17 +351,20 @@
         	"description": "Adds date and or time to the reminder",
         	"enabledByDefault": false,
         	"utterances": [
-        		"{Saturday at 9am:=>ReminderDateAndTime}",
-                "{30 minutes:=>Duration}",
-                "{in 1 hour:=>Duration} thanks",
-                "{For 1 hour:=>Duration} please",
-                "For {Monday at 9 a m:=>ReminderDateAndTime}",
-                "{Tuesday 18th of March 2020:=>ReminderDateAndTime}",
-                "{at ten in the morning:=>ReminderDateAndTime}",
-                "{at 7 in the evening:=>ReminderDateAndTime}",
-                "{in 3 minutes:=>Duration}",
-                "{for ten o'clock:=>ReminderDateAndTime}"
-        	],
+				"{30 minutes:=>Duration}",
+				"{for 10 minutes:=>Duration}",
+				"{in 3 minutes:=>Duration}",
+				"{for 2 hours:=>Duration}",
+				"{in 1 hour:=>Duration} thanks",
+				"{for 1 hour:=>Duration} please",
+				"{3 hours:=>Duration}",
+				"{Saturday at 9am:=>ReminderDateAndTime}",
+				"For {Monday at 9 a m:=>ReminderDateAndTime}",
+				"{Tuesday 18th of March 2020:=>ReminderDateAndTime}",
+				"{at ten in the morning:=>ReminderDateAndTime}",
+				"{at 5 p m:=>ReminderDateAndTime}",
+				"{for ten o'clock:=>ReminderDateAndTime}"
+			],
         	"slots": [
         		{
         			"name": "ReminderDateAndTime",

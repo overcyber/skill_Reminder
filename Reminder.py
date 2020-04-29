@@ -350,14 +350,14 @@ class Reminder(AliceSkill):
 
 	# This starts the process of asking user what item to look up in the list
 	def getItemFromList(self, session: DialogSession):
-		messageInt = len(self._dbMessageList)  # Find the amount of messages and subtract 1
-		if messageInt > 8:
-			self.endDialog(
-				sessionId=session.sessionId,
-				text=self.randomTalk('respondHighMessageLength', replace=[self._eventType])
-			)
+		completeMessageString = ''
 
-		textFilePointer = f'respondReminder{messageInt}'
+		i = 0
+		# Reads a list of items and adds it to one string
+		for x in self._dbMessageList:
+			i += 1
+			commonString = f'The {self._eventType} number {i} <break time=\"250ms\"/>.'
+			completeMessageString = f'{completeMessageString} {commonString} {x} <break time=\"250ms\"/>,'
 
 		if len(self._dbMessageList) == 0:
 			self.endDialog(
@@ -381,16 +381,16 @@ class Reminder(AliceSkill):
 			else:
 				return
 		else:
-			self.askForWhichItems(session, textFilePointer, self._dbMessageList)
+			self.askForWhichItems(session, self._dbMessageList, completeMessageString)
 
 
 	# This is used for asking the user to select the item from a list and return it to extractRequestedItemFromList()
-	def askForWhichItems(self, session: DialogSession, textFilePointer, dbMessageList):
+	def askForWhichItems(self, session: DialogSession, dbMessageList, completeMessageString):
 		dbMessageList.insert(0, self._eventType)
 
 		self.continueDialog(
 			sessionId=session.sessionId,
-			text=self.randomTalk(textFilePointer, replace=[message for message in self._dbMessageList]),
+			text=self.randomTalk('respondListOfItems', replace=[completeMessageString]),  # replace=[message for message in self._dbMessageList]),
 			intentFilter=[self._INTENT_SELECT_ITEM],
 			currentDialogState='askWhatItemFromList',
 			probabilityThreshold=0.1,
@@ -574,7 +574,7 @@ class Reminder(AliceSkill):
 				float(convertedTime)
 				vocalSeconds = str(timedelta(seconds=round(convertedTime)))
 				self.logDebug(f'You have a {self._TimerEventType} with {vocalSeconds} left on it')
-				cleanUpSeconds = convertedTime + 20
+				cleanUpSeconds = convertedTime + 20.0
 
 				if convertedTime < 299.0:
 					self.ThreadManager.doLater(
