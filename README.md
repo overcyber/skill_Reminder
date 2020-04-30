@@ -4,7 +4,7 @@
 
 Set local reminders such as "Set a reminder in 10 minutes to ring bob"
 
-- Author: LazzaAU
+- Author: Lazza
 - Maintainers: Psycho, Phillip
 - Alice minimum Version: 1.0.0-b1
 - Languages:

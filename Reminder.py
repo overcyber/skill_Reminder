@@ -10,7 +10,7 @@ from core.base.SuperManager import SuperManager
 
 class Reminder(AliceSkill):
 	"""
-	Author: LazzaAU. This skill utilises these main methods for functional operation
+	Author: Lazza. This skill utilises these main methods for functional operation
 		- addReminder initiates the reminder process between user and Alice
 		- Then passes onto processTheSpecifiedTime() for processing of the time
 		- then onto maincode() for finalising the timer
