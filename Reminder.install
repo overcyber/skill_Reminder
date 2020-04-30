@@ -1,9 +1,9 @@
 {
     "name": "Reminder",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "icon": "fas fa-hourglass-half",
     "category": "organisation",
-    "author": "LazzaAU",
+    "author": "Lazza",
     "maintainers": [],
     "desc": "Set local reminders such as \" set a reminder in 10 minutes \"",
     "aliceMinVersion": "1.0.0-b1",
