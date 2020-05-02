@@ -1,11 +1,10 @@
-from datetime import datetime, timedelta
 import time
-from pathlib import Path
+from datetime import datetime, timedelta
 from core.base.model.AliceSkill import AliceSkill
 from core.base.model.Intent import Intent
+from core.commons import constants
 from core.dialog.model.DialogSession import DialogSession
 from core.util.Decorators import IntentHandler
-from core.base.SuperManager import SuperManager
 
 
 class Reminder(AliceSkill):
@@ -68,17 +67,17 @@ class Reminder(AliceSkill):
 		self._secondsDuration = ''
 		self._reminderMessage = ''
 		self._dbId = 0
-		self._theSiteId = 'default'
-		self._dbTableValues = []
+		self._theSiteId = constants.DEFAULT_SITE_ID
+		self._dbTableValues = list()
 		self._selectedMessages = None
-		self._dbTimeStampList = []
-		self._dbMessageList = []
-		self._dbRowIdList = []
-		self._dbSiteList = []
-		self._eventType = ''
+		self._dbTimeStampList = list()
+		self._dbMessageList = list()
+		self._dbRowIdList = list()
+		self._dbSiteList = list()
+		self._eventType = list()
 		self._activeDataBase = 'MyReminders'
 		self._dataBaseList = ['MyReminders', 'MyTimer', 'MyAlarm']
-		self._TimerEventType = []
+		self._TimerEventType = list()
 
 		self._INTENTS = [
 			self._INTENT_ANSWER_YES_OR_NO,
@@ -98,11 +97,6 @@ class Reminder(AliceSkill):
 			'AddMessageToReminder': self.processTheSpecifiedTime
 		}
 
-		self._INTENT_ADD_DATE.dialogMapping = {
-			# 'AddedTheDateOrDuration': self.addMessageToReminder
-
-		}
-
 		self._INTENT_DELETE_REMINDER.dialogMapping = {
 			'DeleteSomeReminder': self.deleteRequestedReminder
 		}
@@ -118,16 +112,16 @@ class Reminder(AliceSkill):
 	# Cleanup the Db on boot up
 	def onStart(self):
 		super().onStart()
-		self.logInfo(f'Doing database maintenance for the Reminder skill')
+		self.logInfo(f'Doing database maintenance')
 		self.cleanupDeadTimers()
-		self.fiveMinuteRunCode()
+		self.onFiveMinute()
 
 
 	# This is called directly by the mapping for intents because DURATION was specified
 	def addReminder(self, session: DialogSession):
 		self.setEventType(session)
 		# If theres no reminder date or duration specified then ask for a message
-		if self._eventType + 'DateAndTime' in session.slots or 'Duration' in session.slots:
+		if f'{self._eventType}DateAndTime' in session.slots or 'Duration' in session.slots:
 			self.continueDialog(
 				sessionId=session.sessionId,
 				text=self.randomTalk(text='respondReminderMessage', replace=[self._eventType]),
@@ -137,7 +131,7 @@ class Reminder(AliceSkill):
 			)
 
 		else:
-			if self._eventType + 'DateAndTime' not in session.slots or 'Duration' not in session.slots:
+			if f'{self._eventType}DateAndTime' not in session.slots or 'Duration' not in session.slots:
 				self.continueDialog(
 					sessionId=session.sessionId,
 					text=self.randomTalk(text='respondSetDuration', replace=[self._eventType]),
@@ -148,11 +142,11 @@ class Reminder(AliceSkill):
 
 
 	def processTheSpecifiedTime(self, session: DialogSession):
-		if self._eventType + 'DateAndTime' in session.slotsAsObjects:
+		if f'{self._eventType}DateAndTime' in session.slotsAsObjects:
 
-			self._spokenDuration = session.slotValue(self._eventType + 'DateAndTime', ).split()  # returns format [2020-04-08, 10:25:00, +10]
+			self._spokenDuration = session.slotValue(f'{self._eventType}DateAndTime').split()  # returns format [2020-04-08, 10:25:00, +10]
 			del self._spokenDuration[-1]  # Removes the timezone off the end
-			self._dateTimeStr = " ".join(self._spokenDuration)  # converts the list to a string
+			self._dateTimeStr = ' '.join(self._spokenDuration)  # converts the list to a string
 			self._dateTimeObject = datetime.strptime(self._dateTimeStr, '%Y-%m-%d %H:%M:%S')
 			self._secondsDuration = self._dateTimeObject - datetime.today()  # find the difference between requested time and now
 
@@ -161,7 +155,7 @@ class Reminder(AliceSkill):
 
 		self._reminderMessage = session.slotRawValue('ReminderMessage')  # set the reminder message
 
-		if self._eventType + 'DateAndTime' in session.slotsAsObjects:  # Convert to Seconds if its called with DateAndTime slot
+		if f'{self._eventType}DateAndTime' in session.slotsAsObjects:  # Convert to Seconds if its called with DateAndTime slot
 			secs = round(self._secondsDuration.total_seconds())
 		else:
 			secs = self._secondsDuration  # Seconds are already converted so set the secs var
@@ -174,10 +168,9 @@ class Reminder(AliceSkill):
 
 
 	# This does the actual setting of the timer details and storing to Db
-	def processAndStoreReminder(self, session: DialogSession, secs):
+	def processAndStoreReminder(self, session: DialogSession, secs: int):
 
 		self.logDebug(f'The requested time converted to seconds is {secs}')
-		secondsToFloat = float(secs)
 
 		# count of the amount of rows in the Database
 		myTablecount = self.tableRowCount()
@@ -185,25 +178,56 @@ class Reminder(AliceSkill):
 		# Convert to Epoch timestamp in Seconds for storing in Db
 		timeStampForDb = self.createEpochTimeStamp(secs)
 
-		# VocalSeconds is used to give Alice's reply a human friendly responce
+		# VocalSeconds is used to give Alice's reply a human friendly response
 		vocalSeconds = str(timedelta(seconds=secs))
+
+		# TODO unhardcode language
+		hours, minutes, seconds = vocalSeconds.split(':')
+		vocalTime = ''
+
+		hours = int(hours)
+		minutes = int(minutes)
+		seconds = int(seconds)
+
+		if seconds > 0:
+			vocalTime = f'{seconds} seconds'
+		if minutes > 0:
+			if minutes > 1:
+				if seconds > 0:
+					vocalTime = f'{minutes} minutes and {vocalTime}'
+				else:
+					vocalTime = f'{minutes} minutes'
+			else:
+				if seconds > 0:
+					vocalTime = f'{minutes} minute and {vocalTime}'
+				else:
+					vocalTime = f'{minutes} minute'
+		if hours > 0:
+			if hours > 1:
+				vocalTime = f'{hours} hours, {vocalTime}'
+			else:
+				vocalTime = f'{hours} hour and {vocalTime}'
+
 
 		# Set event type for later recall from db when dofiveMinute is called after a reboot
 		self._TimerEventType = self._eventType
 
-		if secondsToFloat < 299:
+		if secs < 299:
 			self.ThreadManager.doLater(
-				interval=secondsToFloat,
+				interval=secs,
 				func=self.runReminder,
 				args=[self._eventType, self._reminderMessage]
 			)
 
 		# Alice Confirming that the Reminder has been set ..........................................................
-		self.endDialog(sessionId=session.sessionId, text=self.randomTalk('respondConfirmed', replace=[self._eventType, self._reminderMessage, vocalSeconds]))
+		self.endDialog(
+			sessionId=session.sessionId,
+			text=self.randomTalk('respondConfirmed', replace=[self._eventType, self._reminderMessage, vocalTime])
+		)
 
 		# write Timer info to the database or not depending on length of time (saves double up reminder from onFive trigger
 		try:
-			if secondsToFloat >= 299:
+			if secs >= 299:
 				self.databaseInsert(
 					tableName=self._activeDataBase,
 					values={'internalID': myTablecount + 1, 'message': self._reminderMessage, 'timestamp': timeStampForDb, 'SiteID': self._theSiteId, 'EventType': self._eventType}
@@ -213,7 +237,7 @@ class Reminder(AliceSkill):
 
 
 	# Respond with The Reminder once time is finished,
-	def runReminder(self, event, savedMessage):
+	def runReminder(self, event: str, savedMessage: str):
 		self.reminderSound(event)
 		time.sleep(0.5)
 		self.say(self.randomTalk(text='respondReminder', replace=[event, savedMessage]), siteId=self._theSiteId)
@@ -225,7 +249,7 @@ class Reminder(AliceSkill):
 
 	# required
 	@staticmethod
-	def createEpochTimeStamp(seconds):
+	def createEpochTimeStamp(seconds: int) -> int:
 		timeStampForDatabase = datetime.now() + timedelta(seconds=seconds)
 		dateTime = str(timeStampForDatabase)
 		pattern = '%Y-%m-%d %H:%M:%S.%f'
@@ -270,15 +294,13 @@ class Reminder(AliceSkill):
 
 
 	# This returns the amount of rows in the database table
-	def tableRowCount(self):
-
-		for dbRow in self.databaseFetch(
-				tableName=self._activeDataBase,
-				query='SELECT count (*) FROM :__table__',
-				values={},
-				method='all'
-		):
-			return dbRow[0]
+	def tableRowCount(self) -> int:
+		dbRows = self.databaseFetch(
+					tableName=self._activeDataBase,
+					query='SELECT COUNT (*) FROM :__table__',
+					method='all'
+				)
+		return dbRows[0]
 
 
 	# This updates the internalID value to match table rowid
@@ -297,16 +319,15 @@ class Reminder(AliceSkill):
 			self.viewTableValues()
 
 			try:
+				# noinspection SqlResolve
 				self.DatabaseManager.update(
 					tableName=self._activeDataBase,
 					callerName=self.name,
-					values={},
 					query='UPDATE :__table__ SET internalId = rowid'
 				)
 			except:
-
 				self.ThreadManager.doLater(
-					interval=300.0,
+					interval=300,
 					func=self.updateInternalIdNumberOfDb()
 				)
 			i += 1
@@ -316,11 +337,11 @@ class Reminder(AliceSkill):
 	def viewTableValues(self):
 		# self.updateInternalIdNumberOfDb()  # resets internalId column to rowid value
 
+		# Todo What??
 		remTableList = []
 		for row in self.databaseFetch(
 				tableName=self._activeDataBase,
 				query='SELECT * FROM :__table__ ',
-				values={},
 				method='all'
 		):
 
@@ -368,13 +389,12 @@ class Reminder(AliceSkill):
 			self._selectedMessages = self._dbMessageList[0]
 
 			if 'ReminderDeleteAll' in session.slotsAsObjects or 'ReminderDelete' in session.slotsAsObjects:
-
 				self.deleteRequestedReminder(session)
 
-			elif self._eventType + 'RemainingTime' in session.slotsAsObjects:
+			elif f'{self._eventType}RemainingTime' in session.slotsAsObjects:
 				self.getTimeRemaining(session)
 
-			elif self._eventType + 'Stop' in session.slotsAsObjects:
+			elif f'{self._eventType}Stop' in session.slotsAsObjects:
 				self.userAskedToStopReminder(session)
 
 			else:
@@ -384,7 +404,7 @@ class Reminder(AliceSkill):
 
 
 	# This is used for asking the user to select the item from a list and return it to extractRequestedItemFromList()
-	def askForWhichItems(self, session: DialogSession, dbMessageList, completeMessageString):
+	def askForWhichItems(self, session: DialogSession, dbMessageList: list, completeMessageString: str):
 		dbMessageList.insert(0, self._eventType)
 
 		self.continueDialog(
@@ -400,7 +420,6 @@ class Reminder(AliceSkill):
 
 	# This currently returns the selected number to extractRequestedItemFromList()
 	def extractRequestedItemFromList(self, session: DialogSession):
-
 		intent = session.intentName
 
 		if intent == self._INTENT_SELECT_ITEM:
@@ -418,10 +437,10 @@ class Reminder(AliceSkill):
 				if 'ReminderDelete' in session.slotsAsObjects:
 					self.deleteRequestedReminder(session)
 
-				elif self._eventType + 'RemainingTime' in session.slotsAsObjects:
+				elif f'{self._eventType}RemainingTime' in session.slotsAsObjects:
 					self.getTimeRemaining(session)
 
-				elif self._eventType + 'Stop' in session.slotsAsObjects:
+				elif f'{self._eventType}Stop' in session.slotsAsObjects:
 					self.userAskedToStopReminder(session)
 
 			else:
@@ -445,6 +464,7 @@ class Reminder(AliceSkill):
 
 			if x < epochTimeNow:
 
+				# noinspection SqlResolve
 				self.DatabaseManager.delete(
 					tableName=self._activeDataBase,
 					query='DELETE FROM :__table__ WHERE timestamp <= :tmpTimestamp',
@@ -462,6 +482,7 @@ class Reminder(AliceSkill):
 	def userAskedToStopReminder(self, session: DialogSession):
 		self.setEventType(session)
 
+		# noinspection SqlResolve
 		self.DatabaseManager.delete(
 			tableName=self._activeDataBase,
 			query='DELETE FROM :__table__ WHERE message = :tmpMessage',
@@ -477,7 +498,7 @@ class Reminder(AliceSkill):
 
 
 	# Used to Convert the Database Timestamp into seconds
-	def convertEpochMinusNowToSeconds(self, epochSeconds = None):
+	def convertEpochMinusNowToSeconds(self, epochSeconds: int = None) -> float:
 		epochTimeNow = datetime.now().timestamp()  # Returns the epoch time for right now
 		indexPos = 0
 		i = 0
@@ -501,7 +522,7 @@ class Reminder(AliceSkill):
 
 
 	# Converts Epoch time from DB to a Human readable output
-	def convertEpochMinusNowToHumanReadableTime(self):
+	def convertEpochMinusNowToHumanReadableTime(self) -> str:
 		convertedToSeconds = self.convertEpochMinusNowToSeconds()
 
 		return str(timedelta(seconds=round(convertedToSeconds)))
@@ -512,7 +533,7 @@ class Reminder(AliceSkill):
 		self.setEventType(session)
 
 		if 'ReminderDeleteAll' not in session.slots:
-
+			# noinspection SqlResolve
 			self.DatabaseManager.delete(
 				tableName=self._activeDataBase,
 				query='DELETE FROM :__table__ WHERE message = :tmpMessage',
@@ -533,10 +554,10 @@ class Reminder(AliceSkill):
 				text=self.randomTalk('respondDeleteAll', replace=[self._eventType]),
 				siteId=session.siteId,
 			)
+			# noinspection SqlWithoutWhere
 			self.DatabaseManager.delete(
 				tableName=self._activeDataBase,
 				query='DELETE FROM :__table__ ',
-				values={},
 				callerName=self.name
 			)
 		self.cleanupDeadTimers()
@@ -545,10 +566,6 @@ class Reminder(AliceSkill):
 	# This does a 5 minute check of the stored timers and if a timer is within 320 seconds of activating
 	# then we initiate the actual timer thread
 	def onFiveMinute(self):
-		self.fiveMinuteRunCode()
-
-
-	def fiveMinuteRunCode(self):
 		self.viewTableValues()
 
 		i = 0
@@ -588,7 +605,7 @@ class Reminder(AliceSkill):
 			i += 1
 
 
-	def reminderSound(self, event):
+	def reminderSound(self, event: str):
 
 		path = event
 		if 'Reminder' in event:
@@ -600,7 +617,7 @@ class Reminder(AliceSkill):
 
 		self.playSound(
 			soundFilename=soundFile,
-			location=Path(f'{SuperManager.getInstance().commons.rootDir()}/skills/Reminder/Sounds/{path}'),
+			location=self.getResource(f'Sounds/{path}'),
 			sessionId='ReminderTriggered',
 			siteId=self._theSiteId
 		)
@@ -633,7 +650,7 @@ class Reminder(AliceSkill):
 	@IntentHandler('SetUpTimer')
 	def setTimerIntent(self, session: DialogSession):
 		self.addReminder(session)
-		self.logWarning(f'Request was >> {session.slotsAsObjects} ')
+		self.logDebug(f'Request was ![yellow]({session.slotsAsObjects})')
 
 
 	# Used for deleting a item(s) - required
@@ -665,10 +682,14 @@ class Reminder(AliceSkill):
 
 	@IntentHandler('ReminderTime')
 	def addRemiderIntent(self, session: DialogSession):
-		pass  # this method is likely to be removed in the near future. No need for it
+		"""
+		this method is likely to be removed in the near future. No need for it
+		:param session:
+		:return:
+		"""
+		pass
 
 
 	@IntentHandler('ReminderMessage')
 	def addReminderIntent(self, session: DialogSession):
-
 		self.processTheSpecifiedTime(session)

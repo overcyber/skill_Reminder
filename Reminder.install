@@ -1,23 +1,18 @@
 {
     "name": "Reminder",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "icon": "fas fa-hourglass-half",
     "category": "organisation",
     "author": "Lazza",
-    "maintainers": [],
+    "maintainers": ["Psycho"],
     "desc": "Set local reminders such as \" set a reminder in 10 minutes \"",
     "aliceMinVersion": "1.0.0-b1",
-    "systemRequirements": [
-        ""
-    ],
-    "pipRequirements": [
-        ""
-    ],
+    "systemRequirements": [],
+    "pipRequirements": [],
     "conditions": {
         "lang": [
             "en"
         ],
-        "online": true,
         "asrArbitraryCapture": true
     }
 }
