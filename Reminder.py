@@ -52,11 +52,11 @@ class Reminder(AliceSkill):
 	}
 	_INTENT_ADD_REMINDER = Intent('ReminderEvent')
 	_INTENT_ADD_DATE = Intent('ReminderTime', isProtected=True)
-	_INTENT_ADD_MESSAGE = Intent('ReminderMessage', isProtected=True)
 	_INTENT_ANSWER_YES_OR_NO = Intent('AnswerYesOrNo', isProtected=True)
 	_INTENT_TIME_REMAINING = Intent('ReminderRemaining', isProtected=True)
 	_INTENT_SELECT_ITEM = Intent('ChooseListItem', isProtected=True)
 	_INTENT_DELETE_REMINDER = Intent('ReminderDelete', isProtected=True)
+	_INTENT_USER_RANDOM_ANSWER = Intent('UserRandomAnswer', isProtected=True)
 
 
 	def __init__(self):
@@ -82,8 +82,8 @@ class Reminder(AliceSkill):
 		self._INTENTS = [
 			self._INTENT_ANSWER_YES_OR_NO,
 			self._INTENT_ADD_DATE,
-			self._INTENT_ADD_MESSAGE,
 			self._INTENT_SELECT_ITEM,
+			self._INTENT_USER_RANDOM_ANSWER,
 			(self._INTENT_ADD_REMINDER, self.addReminder)
 		]
 
@@ -93,7 +93,12 @@ class Reminder(AliceSkill):
 			# 'ConfirmIfMessageAndTimeCorrect': self.processTheSpecifiedTime
 
 		}
+
 		self._INTENT_ADD_REMINDER.dialogMapping = {
+			'AddMessageToReminder': self.processTheSpecifiedTime
+		}
+
+		self._INTENT_USER_RANDOM_ANSWER.dialogMapping = {
 			'AddMessageToReminder': self.processTheSpecifiedTime
 		}
 
@@ -125,9 +130,8 @@ class Reminder(AliceSkill):
 			self.continueDialog(
 				sessionId=session.sessionId,
 				text=self.randomTalk(text='respondReminderMessage', replace=[self._eventType]),
-				intentFilter=[self._INTENT_ADD_MESSAGE],
-				currentDialogState='AddMessageToReminder',
-				slot='ReminderMessage'
+				intentFilter=[self._INTENT_USER_RANDOM_ANSWER],
+				currentDialogState='AddMessageToReminder'
 			)
 
 		else:
@@ -153,7 +157,7 @@ class Reminder(AliceSkill):
 		if 'Duration' in session.slotsAsObjects:
 			self._secondsDuration = self.Commons.getDuration(session)  # Gets the requested duration in seconds
 
-		self._reminderMessage = session.slotRawValue('ReminderMessage')  # set the reminder message
+		self._reminderMessage = session.payload['input']  # set the reminder message
 
 		if f'{self._eventType}DateAndTime' in session.slotsAsObjects:  # Convert to Seconds if its called with DateAndTime slot
 			secs = round(self._secondsDuration.total_seconds())
@@ -245,8 +249,7 @@ class Reminder(AliceSkill):
 	# Respond with The Reminder once time is finished,
 	def runReminder(self, event: str, savedMessage: str):
 		self.reminderSound(event)
-		time.sleep(0.5)
-		self.say(self.randomTalk(text='respondReminder', replace=[event, savedMessage]), siteId=self._theSiteId)
+		self.ThreadManager.doLater(interval=0.5, func=self.say, kargs={'text': self.randomTalk(text='respondReminder', replace=[event, savedMessage]), 'siteId': self._theSiteId})
 
 
 	def foodReminder(self):
