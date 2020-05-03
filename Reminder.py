@@ -182,13 +182,13 @@ class Reminder(AliceSkill):
 		vocalSeconds = str(timedelta(seconds=secs))
 
 		# TODO unhardcode language
-		hours, minutes, seconds = vocalSeconds.split(':')
+		hour, minute, second = vocalSeconds.split(':')
 		vocalTime = ''
 
 		try:
-			hours = int(hours)
-			minutes = int(minutes)
-			seconds = int(seconds)
+			hours = int(hour)
+			minutes = int(minute)
+			seconds = int(second)
 		except ValueError:
 			self.logWarning('Something went wrong decoding time')
 			hours = 0
