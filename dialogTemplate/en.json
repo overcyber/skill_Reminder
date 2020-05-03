@@ -13,7 +13,9 @@
 					"value": "alarm",
 					"synonyms": [
 						"Alarm",
-						"alarms"
+						"alarms",
+						"wake me",
+						"wake me up"
 					]
 				}
 			]
@@ -124,21 +126,6 @@
             ]
         },
 		{
-            "name": "ReminderMessage",
-            "matchingStrictness": null,
-            "automaticallyExtensible": true,
-            "useSynonyms": true,
-            "values": [
-                {
-                    "value": "text",
-                    "synonyms": [
-                        "message",
-						"topic"
-					]
-                }
-            ]
-        },
-		{
 			"name": "StopEvent",
 			"matchingStrictness": null,
 			"automaticallyExtensible": true,
@@ -206,13 +193,15 @@
 				"Set a {alarm:=>AlarmEvent} for {1 minute:=>Duration}",
 				"Can you create a {Alarm:=>AlarmEvent} for {3 hours:=>Duration} please",
 				"Set a {alarm:=>AlarmEvent} in {10 minutes:=>Duration}",
-				"create a {Alarm:=>AlarmEvent} for {20 miuntes:=>Duration} please",
+				"create a {Alarm:=>AlarmEvent} for {20 minutes:=>Duration} please",
 				"Set a {15 minute:=>Duration} {alarm:=>AlarmEvent} please",
 				"Set a {alarm:=>AlarmEvent} for {tuesday at 8 am:=>AlarmDateAndTime}",
 				"Set an {alarm:=>AlarmEvent} for {10 minutes:=>AlarmDateAndTime}",
 				"Add a {20 minute:=>AlarmDateAndTime} {alarm:=>AlarmEvent}",
 				"create a {alarm:=>AlarmEvent} for {2 pm:=>AlarmDateAndTime}",
-				"Add a {alarm:=>AlarmEvent} for {4pm:=>AlarmDateAndTime}"
+				"Add a {alarm:=>AlarmEvent} for {4pm:=>AlarmDateAndTime}",
+				"{wake me:=>AlarmEvent} in {20 minutes:=>Duration} please",
+				"please {wake me:=>AlarmEvent} in {20 minutes:=>Duration}"
 			],
 			"slots": [
 				{
@@ -247,7 +236,7 @@
 				"Set a {timer:=>TimerEvent} for {1 minute:=>Duration}",
 				"Can you create a {timer:=>TimerEvent} for {3 hours:=>Duration} please",
 				"Set a {timer:=>TimerEvent} in {10 minutes:=>Duration}",
-				"create a {timer:=>TimerEvent} for {20 miuntes:=>Duration} please",
+				"create a {timer:=>TimerEvent} for {20 minutes:=>Duration} please",
 				"Set a {food:=>Food} {timer:=>TimerEvent} for {20 minutes:=>Duration}",
 				"Set a {pizza:=>Food} {timer:=>TimerEvent} for {20 minutes:=>Duration}",
 				"Create a {food:=>Food} {timer:=>TimerEvent} for {5 minutes:=>Duration} please",
@@ -382,27 +371,6 @@
 				}
 			]
         },
-		{
-			"name": "ReminderMessage",
-			"description": "Adds message or topic to the reminder",
-			"enabledByDefault": false,
-			"utterances": [
-				"{message:=>ReminderMessage} is",
-				"Set {message:=>ReminderMessage} to",
-				"The {message:=>ReminderMessage} is",
-				"{text:=>ReminderMessage} is",
-				"{topic:=>ReminderMessage} is"
-			],
-			"slots": [
-				{
-					"name": "ReminderMessage",
-					"description": null,
-					"required": false,
-					"type": "ReminderMessage",
-					"missingQuestion": ""
-				}
-			]
-		},
 		{
 			"name": "ReminderStop",
 			"description": "Stops a reminder",

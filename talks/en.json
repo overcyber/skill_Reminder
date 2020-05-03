@@ -25,10 +25,10 @@
 	},
 	"respondDelete": {
 		"default": [
-			"No worries I have deleted that {} for you",
-			"All sorted, cleaned up your {}'s like no one was here",
-			"Wow, I not only deleted that {} i sent it on a mission to mars",
-			"Seems I did that correctly. That {} is not there now "
+			"No worries I have deleted that {} for you.",
+			"All sorted, cleaned up your {}'s like no one was here.",
+			"Wow, I not only deleted that {} i sent it on a mission to mars.",
+			"Seems I did that correctly. That {} is not there now."
 		],
 		"short": [
 			"Sorted",
@@ -37,25 +37,25 @@
 	},
 	"respondFoodTimer": {
 		"default": [
-			"Hey chef, We're half way through the timer. Time to check on your food ",
-			"Attention chef. Check on your food in case it needs stirred or turned",
-			"Tap, tap, tap.<break time=\\\"250ms\\\"/>  Don't know if this mic's working.<break time=\\\"150ms\\\"/>  Ummmm Attention shoppers, foodcheck on isle 3 please",
-			"Do I smell something burning ? Might pay to go check on your food now chef"
+			"Hey chef, we're half way through the timer. Time to check on your food!",
+			"Attention chef. Check on your food in case it needs stirred or turned.",
+			"Tap, tap, tap.<break time=\"250ms\"/> Don't know if this mic's working.<break time=\"150ms\"/>Ummmm Attention shoppers, foodcheck on isle 3 please",
+			"Do I smell something burning? Might pay to go check on your food now chef."
 		],
 		"short": [
-			"Check your food",
-			"Food check, isle 3"
+			"Check your food!",
+			"Food check, isle 3!"
 		]
 	},
 	"respondToANoReply": {
 		"default": [
-			"ok I'll go back to dusting off my circuit board and forget about that {}",
-			"Sure, I'm forgetting you even said a word",
-			"Ok, I'm busy heating up a raspberry pie anyway"
+			"ok I'll go back to dusting off my circuit board and forget about that {}...",
+			"Sure, I'm forgetting you even said a word...",
+			"Ok, I'm busy heating up a raspberry pie anyway!"
 		],
 		"short": [
-			"ok, forgotton",
-			"Sure"
+			"ok, forgotten!",
+			"Sure!"
 		]
 	},
 	"respondSetReminder": {
@@ -80,18 +80,18 @@
 	},
 	"respondSetDuration": {
 		"default": [
-			"What time do you want the {} set for ?",
-			"When do you want the {} to re occur ? "
+			"What time do you want the {} set for?",
+			"When do you want the {} to re occur?"
 		],
 		"short": [
-			"For when ?",
-			"For what time or date ?"
+			"For whe ?",
+			"For what time or date?"
 		]
 	},
 	"respondReminder": {
 		"default": [
 			"You have a {0} with the message {1}",
-			"This is your {0} for {1} "
+			"This is your {0} for {1}"
 		],
 		"short": [
 			"Reminder {}"
@@ -103,7 +103,7 @@
 			"I will remind you of {1} in {2}"
 		],
 		"short": [
-			"Reminder {0} is set "
+			"Reminder {0} is set"
 		]
 	},
 	"respondNoActive": [
@@ -113,7 +113,7 @@
 		"I didn't hear a number. Please try again"
 	],
 	"respondAskConfirmation": [
-		"Are you sure you want to delete all of your {}'s ?"
+		"Are you sure you want to delete all of your {}'s?"
 	],
 	"respondListOfItems": [
 		"Please repeat the number of the item you want me to work on from the following list. {0}",
