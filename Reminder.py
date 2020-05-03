@@ -185,9 +185,15 @@ class Reminder(AliceSkill):
 		hours, minutes, seconds = vocalSeconds.split(':')
 		vocalTime = ''
 
-		hours = int(hours)
-		minutes = int(minutes)
-		seconds = int(seconds)
+		try:
+			hours = int(hours)
+			minutes = int(minutes)
+			seconds = int(seconds)
+		except ValueError:
+			self.logWarning('Something went wrong decoding time')
+			hours = 0
+			minutes = 0
+			seconds = 60
 
 		if seconds > 0:
 			vocalTime = f'{seconds} seconds'
