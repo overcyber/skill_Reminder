@@ -131,7 +131,7 @@ class Reminder(AliceSkill):
 				sessionId=session.sessionId,
 				text=self.randomTalk(text='respondReminderMessage', replace=[self._eventType]),
 				intentFilter=[self._INTENT_USER_RANDOM_ANSWER],
-				currentDialogState='AddMessageToReminder',
+				currentDialogState='AddMessageToReminder'
 			)
 
 		else:
