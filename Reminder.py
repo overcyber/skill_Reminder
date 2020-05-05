@@ -249,7 +249,7 @@ class Reminder(AliceSkill):
 	# Respond with The Reminder once time is finished,
 	def runReminder(self, event: str, savedMessage: str):
 		self.reminderSound(event)
-		self.ThreadManager.doLater(interval=0.5, func=self.say, kargs={'text': self.randomTalk(text='respondReminder', replace=[event, savedMessage]), 'siteId': self._theSiteId})
+		self.ThreadManager.doLater(interval=0.5, func=self.say, kwargs={'text': self.randomTalk(text='respondReminder', replace=[event, savedMessage]), 'siteId': self._theSiteId})
 
 
 	def foodReminder(self):
@@ -347,7 +347,7 @@ class Reminder(AliceSkill):
 		# self.updateInternalIdNumberOfDb()  # resets internalId column to rowid value
 
 		# Todo What??
-		remTableList = []
+		dbTableList = []
 		for row in self.databaseFetch(
 				tableName=self._activeDataBase,
 				query='SELECT * FROM :__table__ ',
@@ -355,9 +355,9 @@ class Reminder(AliceSkill):
 		):
 
 			if tuple(row):
-				remTableList.append(tuple(row))
+				dbTableList.append(tuple(row))
 
-		self._dbTableValues = remTableList  # Get the entire Reminder Database table
+		self._dbTableValues = dbTableList  # Get the entire Reminder Database table
 		self._dbSiteList = [x[3] for x in self._dbTableValues]  # get list of SiteId for use on a Alice restart
 		self._dbTimeStampList = [x[2] for x in self._dbTableValues]  # get list of TimeStamps
 		self._dbMessageList = [x[1] for x in self._dbTableValues]  # get the list of messages
