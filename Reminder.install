@@ -4,7 +4,9 @@
     "icon": "fas fa-hourglass-half",
     "category": "organisation",
     "author": "Lazza",
-    "maintainers": ["Psycho"],
+    "maintainers": [
+        "Psycho"
+    ],
     "desc": "Set local reminders such as \" set a reminder in 10 minutes \"",
     "aliceMinVersion": "1.0.0-b1",
     "systemRequirements": [],
