@@ -2,7 +2,6 @@ import time
 from datetime import datetime, timedelta
 from core.base.model.AliceSkill import AliceSkill
 from core.base.model.Intent import Intent
-from core.commons import constants
 from core.dialog.model.DialogSession import DialogSession
 from core.util.Decorators import IntentHandler
 
@@ -67,7 +66,7 @@ class Reminder(AliceSkill):
 		self._secondsDuration = ''
 		self._reminderMessage = ''
 		self._dbId = 0
-		self._theSiteId = constants.DEFAULT_SITE_ID
+		self._theSiteId = self.getAliceConfig('deviceName')
 		self._dbTableValues = list()
 		self._selectedMessages = None
 		self._dbTimeStampList = list()
