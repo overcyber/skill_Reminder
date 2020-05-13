@@ -4,6 +4,23 @@
     "description": "Set local reminders such as \" remind me in ten minutes to ring bob \"",
     "slotTypes": [
 		{
+			"name": "ShortTimer",
+			"matchingStrictness": null,
+			"automaticallyExtensible": true,
+			"useSynonyms": true,
+			"values": [
+				{
+					"value": "short",
+					"synonyms": [
+						"simple",
+						"quick",
+						"brief",
+						"lazy"
+					]
+				}
+			]
+		},
+		{
 			"name": "AlarmEvent",
 			"matchingStrictness": null,
 			"automaticallyExtensible": true,
@@ -245,9 +262,21 @@
 				"Set a {Timer:=>TimerEvent} for {10 minutes:=>TimerDateAndTime}",
 				"Add a {20 minute:=>TimerDateAndTime} {Timer:=>TimerEvent}",
 				"create a {Timer:=>TimerEvent} for {2 pm:=>TimerDateAndTime}",
-				"Add a {Timer:=>TimerEvent} for {4pm:=>TimerDateAndTime}"
+				"Add a {Timer:=>TimerEvent} for {4pm:=>TimerDateAndTime}",
+				"set a {short:=>ShortTimer} {timer:=>TimerEvent} for {5 minutes:=>Duration}",
+				"create a {short:=>ShortTimer} {timer:=>TimerEvent} for {7 minutes:=>Duration}",
+				"set a {quick:=>ShortTimer} {timer:=>TimerEvent} for {3 minutes:=>Duration}",
+				"set a {simple:=>ShortTimer} {timer:=>TimerEvent} for {7 minutes:=>Duration} please",
+				"add a {breif:=>ShortTimer} {timer:=>TimerEvent} for {7 minutes:=>Duration} please"
 			],
 			"slots": [
+				{
+					"name": "ShortTimer",
+					"description": null,
+					"required": false,
+					"type": "ShortTimer",
+					"missingQuestion": ""
+				},
 				{
 					"name": "TimerEvent",
 					"description": null,

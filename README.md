@@ -55,7 +55,17 @@ In the following utternaces you can do as above to change between reminder or ti
  **Additional events** :
  - Asking Alice to set a "Food Timer" will let alice know your cooking and therefore she will remind 
     you half way through the timer to check your food.
- 
+ - Alice can now set a "Timer" (only) without a message by saying things like
+    * set a quick timer for 3 minutes
+    * create a short timer for 2 minutes
+    * keywords to trigger this are : "quick", "short" "breif", "simple", "lazy"
+    and she will now set a timer event without the need for a topic
+    
+    NOTE: the limitation on this quick timer function are.
+    * if you reboot you'll loose the timer 
+    * you wont be able to stop the timer as it has no topic
+    * you won't be able to ask how longs left on the timer as it has no topic
+    * This only works for timer event, not reminder or alarm events
      
  **Sound folder**
  
