@@ -121,9 +121,35 @@ class Reminder(AliceSkill):
 		self.onFiveMinute()
 
 
+	def runShortTimer(self, event: str):
+		self.reminderSound(event)
+		self.ThreadManager.doLater(
+			interval=0.5,
+			func=self.say(
+				text='Your short timer has finished'
+			),
+		)
+
+
 	# This is called directly by the mapping for intents because DURATION was specified
 	def addReminder(self, session: DialogSession):
 		self.setEventType(session)
+		# if user set a short time do this
+		if 'ShortTimer' in session.slots and 'Duration' in session.slots:
+			self._secondsDuration = self.Commons.getDuration(session)
+			self._reminderMessage = 'for the timer with no topic'
+
+			self.ThreadManager.doLater(
+				interval=self._secondsDuration,
+				func=self.runShortTimer,
+				args=[self._eventType]
+			)
+			self.endDialog(
+				sessionId=session.sessionId,
+				text=f'ok, done'
+			)
+			return
+
 		# If theres no reminder date or duration specified then ask for a message
 		if f'{self._eventType}DateAndTime' in session.slots or 'Duration' in session.slots:
 			self.continueDialog(
@@ -658,7 +684,6 @@ class Reminder(AliceSkill):
 	@IntentHandler('SetUpTimer')
 	def setTimerIntent(self, session: DialogSession):
 		self.addReminder(session)
-		self.logDebug(f'Request was ![yellow]({session.slotsAsObjects})')
 
 
 	# Used for deleting a item(s) - required
