@@ -1,7 +1,7 @@
 {
     "skill": "Reminder",
     "icon": "time",
-    "description": "Set local reminders such as \" remind me in ten minutes to ring bob \"",
+    "description": "Erstelle Erinnerungen wie \" Erinnere mich in  10 Minuten Bon anzurufen \"",
     "slotTypes": [
 		{
 			"name": "AlarmEvent",
@@ -13,7 +13,7 @@
 					"value": "alarm",
 					"synonyms": [
 						"Alarm",
-						"alarms"
+						"Alarme"
 					]
 				}
 			]
@@ -27,8 +27,7 @@
 				{
 					"value": "timer",
 					"synonyms": [
-						"Timer",
-						"timers"
+						"Timer"
 					]
 				}
 			]
@@ -42,8 +41,13 @@
 				{
 					"value": "food",
 					"synonyms": [
-						"pizza",
-						"chicken"
+						"Pizza",
+						"Hühnchen",
+						"Ofen",
+						"Kuchen",
+						"Muffin",
+						"Nudel",
+						"Eier"
 					]
 				}
 			]
@@ -55,10 +59,10 @@
 			"useSynonyms": true,
 			"values": [
 				{
-					"value": "remaining",
+					"value": "verbleibend",
 					"synonyms": [
-						"how long",
-						"time left"
+						"wie lange",
+						"übrig"
 					]
                 }
             ]
@@ -72,7 +76,7 @@
 				{
 					"value": "stop",
 					"synonyms": [
-						"cancel"
+						"abbrechen"
 					]
 				}
 			]
@@ -84,10 +88,10 @@
 			"useSynonyms": true,
 			"values": [
 				{
-					"value": "remaining",
+					"value": "verbleibend",
 					"synonyms": [
-						"how long",
-						"time left"
+						"wie lange",
+						"übrig"
 					]
 				}
 			]
@@ -101,7 +105,7 @@
 				{
 					"value": "stop",
 					"synonyms": [
-						"cancel"
+						"abbrechen"
 					]
 				}
 			]
@@ -113,12 +117,9 @@
 			"useSynonyms": true,
 			"values": [
 				{
-					"value": "reminder",
+					"value": "Erinnerung",
 					"synonyms": [
-						"Reminder",
-						"remind",
-						"remember",
-						"reminders"
+						"Erinnerungen"
 					]
                 }
             ]
@@ -133,7 +134,8 @@
                     "value": "text",
                     "synonyms": [
                         "message",
-						"topic"
+						"Nachricht",
+						"Thema"
 					]
                 }
             ]
@@ -147,7 +149,7 @@
 				{
 					"value": "stop",
 					"synonyms": [
-						"cancel"
+						"abbrechen"
 					]
 				}
             ]
@@ -159,9 +161,9 @@
             "useSynonyms": true,
             "values": [
                 {
-                    "value": "delete",
+                    "value": "löschen",
                     "synonyms": [
-						"remove"
+						"entfernen"
 					]
                 }
             ]
