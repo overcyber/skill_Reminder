@@ -1,0 +1,122 @@
+{
+	"respondTimeRemaining": {
+		"default": [
+			"Es sind noch {0} bis zu deinem {1}",
+			"Einen Moment bitte. Du hast noch {0} übrig auf dem {1}",
+			"Insgesamt hast du noch {0} auf dem {1}",
+			"Für den {1} verbleiben noch {0}. Keine Sorge, ich halet dich auf dem laufenden."
+		],
+		"short": [
+			"{0}",
+			"Der {1} ist bei {0}"
+		]
+	},
+	"respondDeleteAll": {
+		"default": [
+			"Keine sorge ich habe die {} für dich gelöscht.",
+			"Alles erledigt, ich habe deine {} gelöscht.",
+			"Ok, ich habe alle {} gelöscht",
+			"{} gelöscht."
+		],
+		"short": [
+			"Erledigt.",
+			"Ok."
+		]
+	},
+	"respondDelete": {
+		"default": [
+			"Ok, ich habe den {} für dich gelöscht.",
+			"Erledigt, ich habe deinen {} gelöscht.",
+			"Von dem {} wirst du nichts mehr hören.",
+			"Der {} ist fort. Ok?"
+		],
+		"short": [
+			"Erledigt.",
+			"OK."
+		]
+	},
+	"respondFoodTimer": {
+		"default": [
+			"Hey chef, wir sind halb durch den Timer. Zeit nach dem Essen zu schauen!",
+			"Aufgepasst. Du solltest mal schauen wie es mit dem Essen aussieht.",
+			"Riecht das hier verbrannt? Sollte doch gerade mal die hälfte der Zeit sein?",
+			"Ich bekomme langsam hunger, wie weit ist das Essen?"
+		],
+		"short": [
+			"Schau mal nach dem Essen!",
+			"Essen ist bald fertig."
+		]
+	},
+	"respondToANoReply": {
+		"default": [
+			"ok. Dann nicht.",
+			"Dann habe ich von nichts gehört.",
+			"Nagut, dann schlafe ich jetzt weiter."
+		],
+		"short": [
+			"ok!",
+			"Klar!"
+		]
+	},
+	"respondSetReminder": {
+		"default": [
+			"Erinnerung wurde auf {} gesetzt",
+			"Ich erinner dich um {0} wegen {1}"
+		],
+		"short": [
+			"Erinnerung erstellt.",
+			"Erinnerung bereit."
+		]
+	},
+	"respondReminderMessage": {
+		"default": [
+			"Welche Nachricht willst du für den {} hinterlegen?",
+			"Wie lautete das Thema für den {}?"
+		],
+		"short": [
+			"Wie lautet die Nachricht?"
+		]
+	},
+	"respondSetDuration": {
+		"default": [
+			"Zu welcher Zeit soll der {} sein?",
+			"Wann soll der {} auftreten?"
+		],
+		"short": [
+			"Für wann?",
+			"Uhrzeit? Datum?"
+		]
+	},
+	"respondReminder": {
+		"default": [
+			"Du hast einen {0} mit der Nachricht{1}",
+			"Das ist dein {0} für {1}"
+		],
+		"short": [
+			"Erinnerung {}"
+		]
+	},
+	"respondConfirmed": {
+		"default": [
+			"Ich habe den {0} mit der Nachricht {1} gespeichert. Ich melde mich dann in {2}",
+			"Ich erinnere dich in {2} wegen {1}."
+		],
+		"short": [
+			"Erinnerung {0} erstellt"
+		]
+	},
+	"respondNoActive": [
+		"Du hast aktuell keinen {}"
+	],
+	"respondNoNumber": [
+		"Die Zahl konnte ich nicht verstehen, bitte nochmal!"
+	],
+	"respondAskConfirmation": [
+		"Bist du dir sicher dass ich alle {} löschen soll?"
+	],
+	"respondListOfItems": [
+		"Bitte wiederhole die Nummer des Eintrags den du bearbeiten willst. {0}",
+		"Ok, bitte wähle eine Nummer au der folgenden Liste. {0}"
+	]
+}
+
