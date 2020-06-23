@@ -9,7 +9,7 @@ Set local reminders such as "Set a reminder in 10 minutes to ring bob"
 - Alice minimum Version: 1.0.0-b1
 - Languages:
     en
-	de
+    de
 
 **Using this Reminder:**
 
