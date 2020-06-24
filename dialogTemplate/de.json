@@ -441,8 +441,8 @@
 			"description": "Stops a reminder",
 			"enabledByDefault": true,
 			"utterances": [
-				"{Stoppe:=>bitte} eine {Erinnerung:=>ReminderStop}",
-				"{breche:=>bitte} eine {Erinnerung:=>ReminderStop} ab",
+				"{Stoppe:=>Stop} eine {Erinnerung:=>ReminderStop}",
+				"{breche:=>Stop} eine {Erinnerung:=>ReminderStop} ab",
 				"Kannst du bitte eine {Erinnerung:=>ReminderStop} {abbrechen:=>Stop}",
 				"{breche:=>Stop} die aktuelle {Erinnerung:=>ReminderStop} ab",
 				"{stoppe:=>Stop} meinen {reminder:=>ReminderStop}",
