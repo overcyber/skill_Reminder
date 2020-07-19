@@ -254,12 +254,6 @@ class Reminder(AliceSkill):
 				args=[self._eventType, self._reminderMessage]
 			)
 
-		# Alice Confirming that the Reminder has been set ..........................................................
-		self.endDialog(
-			sessionId=session.sessionId,
-			text=self.randomTalk('respondConfirmed', replace=[self._eventType, self._reminderMessage, vocalTime])
-		)
-
 		# write Timer info to the database or not depending on length of time (saves double up reminder from onFive trigger
 		try:
 			if secs >= 299:
@@ -267,8 +261,19 @@ class Reminder(AliceSkill):
 					tableName=self._activeDataBase,
 					values={'internalID': myTablecount + 1, 'message': self._reminderMessage, 'timestamp': timeStampForDb, 'SiteID': self._theSiteId, 'EventType': self._eventType}
 				)
-		except:
-			self.logError(f'Failed to enable timer due to **Database** temporarily being locked')
+		except Exception as e:
+			self.logError(f'Failed to enable timer due to **Database** error: {e}')
+			self.endDialog(
+				sessionId=session.sessionId,
+				text=self.randomTalk('databaseError')
+			)
+			return
+
+		# Alice Confirming that the Reminder has been set ..........................................................
+		self.endDialog(
+			sessionId=session.sessionId,
+			text=self.randomTalk('respondConfirmed', replace=[self._eventType, self._reminderMessage, vocalTime])
+		)
 
 
 	# Respond with The Reminder once time is finished,
@@ -331,8 +336,8 @@ class Reminder(AliceSkill):
 	def tableRowCount(self) -> int:
 		dbRows = self.databaseFetch(
 					tableName=self._activeDataBase,
-					query='SELECT COUNT (*) FROM :__table__',
-					method='all'
+					query='SELECT COUNT () FROM :__table__',
+					method='one'
 				)
 		return dbRows[0]
 

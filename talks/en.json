@@ -118,6 +118,10 @@
 	"respondListOfItems": [
 		"Please repeat the number of the item you want me to work on from the following list. {0}",
 		"Alrighty. Choose a number from the following list. {0}"
+	],
+	"databaseError": [
+		"Sorry, I can't remember that one.",
+		"Oh no, I'm not able to remember that for you."
 	]
 }
 

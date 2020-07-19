@@ -117,6 +117,10 @@
 	"respondListOfItems": [
 		"Bitte wiederhole die Nummer des Eintrags den du bearbeiten willst. {0}",
 		"Ok, bitte wähle eine Nummer au der folgenden Liste. {0}"
+	],
+	"databaseError": [
+		"Da ist was schief gelaufen! Den Timer kann ich mir nicht merken.",
+		"Entschuldigung, das kann ich mir gerade nicht merken."
 	]
 }
 
