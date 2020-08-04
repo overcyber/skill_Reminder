@@ -8,7 +8,7 @@
         "Psycho",
         "philipp2310"
     ],
-    "desc": "Set local reminders such as \" set a reminder in 10 minutes \"",
+    "desc": "Set local reminders such as \"set a reminder in 10 minutes\"",
     "aliceMinVersion": "1.0.0-b1",
     "systemRequirements": [],
     "pipRequirements": [],
