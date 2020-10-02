@@ -1,7 +1,5 @@
 {
     "skill": "Reminder",
-    "icon": "time",
-    "description": "Erstelle Erinnerungen wie zum Beispiel \" Erinner mich in 10 Minuten Bob anzurufen \"",
     "slotTypes": [
 		{
 			"name": "ShortTimer",
@@ -251,7 +249,6 @@
     "intents": [
 		{
 			"name": "SetUpAlarm",
-			"description": "Setup a Alarm",
 			"enabledByDefault": true,
 			"utterances": [
 				"Schreibe einen {Alarm:=>AlarmEvent} für {1 Stunde:=>Duration}",
@@ -294,7 +291,6 @@
 		},
 		{
 			"name": "SetUpTimer",
-			"description": "Setup a timer",
 			"enabledByDefault": true,
 			"utterances": [
 				"Setze den {timer:=>TimerEvent} auf {1 hour:=>Duration}",
@@ -356,7 +352,6 @@
 		},
 		{
 			"name": "ReminderEvent",
-			"description": "User adds a new reminder",
 			"enabledByDefault": true,
 			"utterances": [
 				"Kannst du mich bitte an was {erinnern:=>ReminderEvent}",
@@ -402,7 +397,6 @@
         },
         {
         	"name": "ReminderTime",
-        	"description": "Adds date and or time to the reminder",
         	"enabledByDefault": false,
         	"utterances": [
 				"{30 minutes:=>Duration}",
@@ -438,7 +432,6 @@
         },
 		{
 			"name": "ReminderStop",
-			"description": "Stops a reminder",
 			"enabledByDefault": true,
 			"utterances": [
 				"{Stoppe:=>Stop} eine {Erinnerung:=>ReminderStop}",
@@ -494,7 +487,6 @@
 		},
 		{
 			"name": "ReminderRemaining",
-			"description": "informs of time left on a reminder",
 			"enabledByDefault": true,
 			"utterances": [
 				"{Wie lange:=>ReminderRemainingTime} ist es noch bei meiner {Erinnerung:=>ReminderSlot}",
@@ -558,7 +550,6 @@
 		},
 		{
 			"name": "ReminderDelete",
-			"description": "deletes reminders",
 			"enabledByDefault": true,
 			"utterances": [
 				"{lösche:=>ReminderDelete} meine {reminder:=>ReminderSlot}",
@@ -619,7 +610,6 @@
 		},
 		{
 			"name": "ChooseListItem",
-			"description": "User chooses a item from the list",
 			"enabledByDefault": false,
 			"utterances": [
 				"Erinnerung {one:=>Number}",

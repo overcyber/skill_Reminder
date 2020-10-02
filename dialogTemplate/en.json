@@ -1,7 +1,5 @@
 {
     "skill": "Reminder",
-    "icon": "time",
-    "description": "Set local reminders such as \" remind me in ten minutes to ring bob \"",
     "slotTypes": [
 		{
 			"name": "ShortTimer",
@@ -203,7 +201,6 @@
     "intents": [
 		{
 			"name": "SetUpAlarm",
-			"description": "Setup a Alarm",
 			"enabledByDefault": true,
 			"utterances": [
 				"Set an {Alarm:=>AlarmEvent} for {1 hour:=>Duration}",
@@ -246,7 +243,6 @@
 		},
 		{
 			"name": "SetUpTimer",
-			"description": "Setup a timer",
 			"enabledByDefault": true,
 			"utterances": [
 				"Set a {timer:=>TimerEvent} for {1 hour:=>Duration}",
@@ -309,7 +305,6 @@
 		},
 		{
 			"name": "ReminderEvent",
-			"description": "User adds a new reminder",
 			"enabledByDefault": true,
 			"utterances": [
 				"Can you {remember:=>ReminderEvent} something for me",
@@ -366,7 +361,6 @@
         },
         {
         	"name": "ReminderTime",
-        	"description": "Adds date and or time to the reminder",
         	"enabledByDefault": false,
         	"utterances": [
 				"{30 minutes:=>Duration}",
@@ -402,7 +396,6 @@
         },
 		{
 			"name": "ReminderStop",
-			"description": "Stops a reminder",
 			"enabledByDefault": true,
 			"utterances": [
 				"{cancel:=>Stop} a {reminder:=>ReminderStop}",
@@ -463,7 +456,6 @@
 		},
 		{
 			"name": "ReminderRemaining",
-			"description": "informs of time left on a reminder",
 			"enabledByDefault": true,
 			"utterances": [
 				"{how long:=>ReminderRemainingTime} is left on my {reminder:=>ReminderSlot}",
@@ -528,7 +520,6 @@
 		},
 		{
 			"name": "ReminderDelete",
-			"description": "deletes reminders",
 			"enabledByDefault": true,
 			"utterances": [
 				"{delete:=>ReminderDelete} my {reminder:=>ReminderSlot}",
@@ -599,7 +590,6 @@
 		},
 		{
 			"name": "ChooseListItem",
-			"description": "User chooses a item from the list",
 			"enabledByDefault": false,
 			"utterances": [
 				"reminder {one:=>Number}",
