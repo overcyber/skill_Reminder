@@ -220,21 +220,18 @@
 			"slots": [
 				{
 					"name": "AlarmEvent",
-					"description": null,
 					"required": false,
 					"type": "AlarmEvent",
 					"missingQuestion": ""
 				},
 				{
 					"name": "AlarmDateAndTime",
-					"description": null,
 					"required": false,
 					"type": "snips/datetime",
 					"missingQuestion": ""
 				},
 				{
 					"name": "Duration",
-					"description": null,
 					"required": false,
 					"type": "snips/duration",
 					"missingQuestion": ""
@@ -268,35 +265,30 @@
 			"slots": [
 				{
 					"name": "ShortTimer",
-					"description": null,
 					"required": false,
 					"type": "ShortTimer",
 					"missingQuestion": ""
 				},
 				{
 					"name": "TimerEvent",
-					"description": null,
 					"required": false,
 					"type": "TimerEvent",
 					"missingQuestion": ""
 				},
 				{
 					"name": "TimerDateAndTime",
-					"description": null,
 					"required": false,
 					"type": "snips/datetime",
 					"missingQuestion": ""
 				},
 				{
 					"name": "Duration",
-					"description": null,
 					"required": false,
 					"type": "snips/duration",
 					"missingQuestion": ""
 				},
 				{
 					"name": "Food",
-					"description": null,
 					"required": false,
 					"type": "Food",
 					"missingQuestion": ""
@@ -338,21 +330,18 @@
         	"slots": [
 				{
 					"name": "ReminderEvent",
-					"description": null,
 					"required": false,
 					"type": "ReminderEvent",
 					"missingQuestion": ""
 				},
         		{
         			"name": "ReminderDateAndTime",
-        			"description": null,
         			"required": false,
         			"type": "snips/datetime",
         			"missingQuestion": ""
         		},
 				{
         			"name": "Duration",
-        			"description": null,
         			"required": false,
         			"type": "snips/duration",
         			"missingQuestion": ""
@@ -380,14 +369,12 @@
         	"slots": [
         		{
         			"name": "ReminderDateAndTime",
-        			"description": null,
         			"required": false,
 					"type": "snips/datetime",
 					"missingQuestion": ""
 				},
 				{
 					"name": "Duration",
-					"description": null,
 					"required": false,
 					"type": "snips/duration",
 					"missingQuestion": ""
@@ -426,28 +413,24 @@
 			"slots": [
 				{
 					"name": "Stop",
-					"description": null,
 					"required": false,
 					"type": "StopEvent",
 					"missingQuestion": ""
 				},
 				{
 					"name": "TimerStop",
-					"description": null,
 					"required": false,
 					"type": "TimerEvent",
 					"missingQuestion": ""
 				},
 				{
 					"name": "ReminderStop",
-					"description": null,
 					"required": false,
 					"type": "ReminderEvent",
 					"missingQuestion": ""
 				},
 				{
 					"name": "AlarmStop",
-					"description": null,
 					"required": false,
 					"type": "AlarmEvent",
 					"missingQuestion": ""
@@ -476,42 +459,36 @@
 			"slots": [
 				{
 					"name": "ReminderRemainingTime",
-					"description": null,
 					"required": false,
 					"type": "ReminderRemainingTime",
 					"missingQuestion": ""
 				},
 				{
 					"name": "TimerSlot",
-					"description": null,
 					"required": false,
 					"type": "TimerEvent",
 					"missingQuestion": ""
 				},
 				{
 					"name": "TimerRemainingTime",
-					"description": null,
 					"required": false,
 					"type": "ReminderRemainingTime",
 					"missingQuestion": ""
 				},
 				{
 					"name": "AlarmSlot",
-					"description": null,
 					"required": false,
 					"type": "AlarmEvent",
 					"missingQuestion": ""
 				},
 				{
 					"name": "AlarmRemainingTime",
-					"description": null,
 					"required": false,
 					"type": "ReminderRemainingTime",
 					"missingQuestion": ""
 				},
 				{
 					"name": "ReminderSlot",
-					"description": null,
 					"required": false,
 					"type": "ReminderEvent",
 					"missingQuestion": ""
@@ -553,35 +530,30 @@
 			"slots": [
 				{
 					"name": "ReminderDelete",
-					"description": null,
 					"required": false,
 					"type": "ReminderDelete",
 					"missingQuestion": ""
 				},
 				{
 					"name": "ReminderDeleteAll",
-					"description": null,
 					"required": false,
 					"type": "ReminderDeleteAll",
 					"missingQuestion": ""
 				},
 				{
 					"name": "ReminderSlot",
-					"description": null,
 					"required": false,
 					"type": "ReminderEvent",
 					"missingQuestion": ""
 				},
 				{
 					"name": "TimerSlot",
-					"description": null,
 					"required": false,
 					"type": "TimerEvent",
 					"missingQuestion": ""
 				},
 				{
 					"name": "AlarmSlot",
-					"description": null,
 					"required": false,
 					"type": "AlarmEvent",
 					"missingQuestion": ""
@@ -610,7 +582,6 @@
 			"slots": [
 				{
 					"name": "Number",
-					"description": null,
 					"required": false,
 					"type": "snips/number",
 					"missingQuestion": ""
