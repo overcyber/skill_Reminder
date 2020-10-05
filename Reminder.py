@@ -50,12 +50,12 @@ class Reminder(AliceSkill):
 		]
 	}
 	_INTENT_ADD_REMINDER = Intent('ReminderEvent')
-	_INTENT_ADD_DATE = Intent('ReminderTime', isProtected=True)
-	_INTENT_ANSWER_YES_OR_NO = Intent('AnswerYesOrNo', isProtected=True)
-	_INTENT_TIME_REMAINING = Intent('ReminderRemaining', isProtected=True)
-	_INTENT_SELECT_ITEM = Intent('ChooseListItem', isProtected=True)
-	_INTENT_DELETE_REMINDER = Intent('ReminderDelete', isProtected=True)
-	_INTENT_USER_RANDOM_ANSWER = Intent('UserRandomAnswer', isProtected=True)
+	_INTENT_ADD_DATE = Intent('ReminderTime')
+	_INTENT_ANSWER_YES_OR_NO = Intent('AnswerYesOrNo')
+	_INTENT_TIME_REMAINING = Intent('ReminderRemaining')
+	_INTENT_SELECT_ITEM = Intent('ChooseListItem')
+	_INTENT_DELETE_REMINDER = Intent('ReminderDelete')
+	_INTENT_USER_RANDOM_ANSWER = Intent('UserRandomAnswer')
 
 
 	def __init__(self):
