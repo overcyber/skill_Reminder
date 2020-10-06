@@ -106,22 +106,48 @@
 			"Reminder {0} is set"
 		]
 	},
-	"respondNoActive": [
-		"You currently have no active {}'s"
-	],
-	"respondNoNumber": [
-		"I didn't hear a number. Please try again"
-	],
-	"respondAskConfirmation": [
-		"Are you sure you want to delete all of your {}'s?"
-	],
-	"respondListOfItems": [
-		"Please repeat the number of the item you want me to work on from the following list. {0}",
-		"Alrighty. Choose a number from the following list. {0}"
-	],
-	"databaseError": [
-		"Sorry, I can't remember that one.",
-		"Oh no, I'm not able to remember that for you."
-	]
+	"respondNoActive": {
+		"default": [
+			"You currently have no active {}'s"
+		],
+		"short": [
+			"you have none"
+		]
+	},
+	"respondNoNumber": {
+		"default": [
+			"I didn't hear a number. Please try again"
+		],
+		"short": [
+			"Please repeat number"
+		]
+	},
+	"respondAskConfirmation": {
+		"default": [
+			"Are you sure you want to delete all of your {}'s?"
+		],
+		"short": [
+			"Are you sure"
+		]
+	},
+	"respondListOfItems": {
+		"default": [
+			"Please repeat the number of the item you want me to work on from the following list. {0}",
+			"Alrighty. Choose a number from the following list. {0}"
+		],
+		"short": [
+			"choose from this list {0}"
+		]
+	},
+	"databaseError": {
+		"default": [
+			"Sorry, I can't remember that one.",
+			"Oh no, I'm not able to remember that for you."
+		],
+		"short": [
+			"Cant remember that one"
+		]
+	}
 }
+
 
