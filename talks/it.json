@@ -1,0 +1,151 @@
+{
+	"respondTimeRemaining": {
+		"default": [
+			"V'è {0} tempo a sinistra su quel {1}",
+			"Si prega di tenere la linea, mentre i check. Sembra di avere {0} a sinistra su che {1}",
+			"Si dispone di un totale di {0} a sinistra in quel {1}",
+			"Per questo {1} hai {0} lasciato andare. Non ti preoccupare io terrò aggiornati"
+		],
+		"short": [
+			"{0}",
+			"Il {1} ​​ha {0} sinistra"
+		]
+	},
+	"respondDeleteAll": {
+		"default": [
+			"Nessun problema Ho cancellato i} {s 'per voi",
+			"Tutto ordinato, ripulito tutto il vostro {} 'come nessuno era qui",
+			"Il capitano tavoli pulito. Non più {} 's memorizzati",
+			"{} 'S cancellati. Housework fatto. Che andrò lucidare le mie resistenze ora"
+		],
+		"short": [
+			"smistato",
+			"Fatto"
+		]
+	},
+	"respondDelete": {
+		"default": [
+			"Nessun problema ho eliminato che {} per voi.",
+			"Tutto risolto, ripulito i tuoi s {} 'come nessuno era qui.",
+			"Wow, non solo cancellato che {} ho inviato su una missione su Marte.",
+			"Sembra che ho fatto in modo corretto. Questo {} non è lì adesso."
+		],
+		"short": [
+			"smistato",
+			"Fatto"
+		]
+	},
+	"respondFoodTimer": {
+		"default": [
+			"Ehi Chef, siamo a metà strada attraverso il timer. È ora di controllare sul vostro cibo!",
+			"Attenzione chef. Controllare sul vostro cibo in caso necessiti mosse o girato.",
+			"Tap, tap, tap. <Tempo di pausa = \"250 ms\" /> Non so se di lavoro. <Tempo di pausa = \"150ms\" /> di questo microfono Ummmm Attenzione acquirenti, foodcheck su un'isola 3 si prega di",
+			"Ho odore di bruciato? Potrebbe pagare per andare a controllare sul vostro cibo ora chef."
+		],
+		"short": [
+			"Controlla il tuo cibo!",
+			"assegno alimentare, isola 3!"
+		]
+	},
+	"respondToANoReply": {
+		"default": [
+			"ok io tornerò a rispolverare il mio circuito e dimenticare che {} ...",
+			"Certo, sto dimenticando ancora detto una parola ...",
+			"Ok, io sono il riscaldamento occupato un comunque lampone torta!"
+		],
+		"short": [
+			"ok, dimenticato!",
+			"Sicuro!"
+		]
+	},
+	"respondSetReminder": {
+		"default": [
+			"Promemoria è stata fissata per {}",
+			"Mi ricordo il {0} circa il promemoria {1}"
+		],
+		"short": [
+			"Reminder è insieme",
+			"smistato"
+		]
+	},
+	"respondReminderMessage": {
+		"default": [
+			"Quale messaggio vorresti come me di impostare per questo {}",
+			"Che argomento vorresti che chiami questo {}"
+		],
+		"short": [
+			"che cosa è il messaggio!",
+			"Qual è il messaggio {}"
+		]
+	},
+	"respondSetDuration": {
+		"default": [
+			"A che ora si desidera che il {} set per?",
+			"Quando si desidera che il {} di ri verificarsi?"
+		],
+		"short": [
+			"Per WHE?",
+			"Per quello che ora o la data?"
+		]
+	},
+	"respondReminder": {
+		"default": [
+			"Si dispone di un {0} con il messaggio {1}",
+			"Questo è il tuo {0} per {1}"
+		],
+		"short": [
+			"Promemoria {}"
+		]
+	},
+	"respondConfirmed": {
+		"default": [
+			"Ho appena impostato che {0} per voi con il tema di {1}. Sentirete da me di nuovo in {2}",
+			"Mi ricordo di {1} a {2}"
+		],
+		"short": [
+			"Promemoria {0} è impostato"
+		]
+	},
+	"respondNoActive": {
+		"default": [
+			"Al momento ci sono} s attivi { '"
+		],
+		"short": [
+			"non ne avete"
+		]
+	},
+	"respondNoNumber": {
+		"default": [
+			"Non ho sentito un numero. Per favore riprova"
+		],
+		"short": [
+			"Si prega di numero di ripetizioni"
+		]
+	},
+	"respondAskConfirmation": {
+		"default": [
+			"Sei sicuro di voler eliminare tutti i tuoi {} s '?"
+		],
+		"short": [
+			"Sei sicuro"
+		]
+	},
+	"respondListOfItems": {
+		"default": [
+			"Si prega di ripetere il numero dell'articolo che vuoi che io lavoro su dalla seguente lista. {0}",
+			"Alrighty. Scegliere un numero dalla lista seguente. {0}"
+		],
+		"short": [
+			"scegliere da questa lista {0}"
+		]
+	},
+	"databaseError": {
+		"default": [
+			"Mi dispiace, non riesco a ricordare che uno.",
+			"Oh no, io non sono in grado di ricordare che per voi."
+		],
+		"short": [
+			"Non ricordo che uno"
+		]
+	}
+}

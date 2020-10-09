@@ -1,6 +1,6 @@
 {
     "name": "Reminder",
-    "version": "1.1.9",
+    "version": "1.1.10",
     "icon": "fas fa-hourglass-half",
     "category": "organisation",
     "author": "Lazza",
@@ -15,7 +15,9 @@
     "conditions": {
         "lang": [
             "en",
-            "de"
+            "de",
+            "it",
+            "fr"
         ],
         "asrArbitraryCapture": true
     }
