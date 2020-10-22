@@ -1,97 +1,96 @@
 {
 	"respondTimeRemaining": {
 		"default": [
-			"Es gibt {0} Zeit links auf dieser {1}",
-			"Bitte halten Sie die Linie, während ich überprüfen. Scheint Sie haben {0} auf die linke {1}",
-			"Sie haben eine Gesamtsumme von {0} auf die linke {1}",
-			"Für die {1} Sie haben {0} nach links zu gehen. Keine Sorge werde ich halte Sie auf dem Laufenden"
+			"Es sind noch {0} bis zu deinem {1}",
+			"Einen Moment bitte. Du hast noch {0} übrig auf dem {1}",
+			"Insgesamt hast du noch {0} auf dem {1}",
+			"Für den {1} verbleiben noch {0}. Keine Sorge, ich halet dich auf dem laufenden."
 		],
 		"short": [
 			"{0}",
-			"Die {1} hat {0} links"
+			"Der {1} ist bei {0}"
 		]
 	},
 	"respondDeleteAll": {
 		"default": [
-			"Keine Sorge, ich habe die {} s für Sie gelöscht",
-			"Alle sortiert, gereinigt, alle Ihre {} ist wie niemand hier war",
-			"Die Tische sauber Kapitän. Nicht mehr {} s gespeichert",
-			"{} S gelöscht. Hausarbeit erledigt. Ich glaube, meine Widerstände gehen würde polieren jetzt"
+			"Keine sorge ich habe die {} für dich gelöscht.",
+			"Alles erledigt, ich habe deine {} gelöscht.",
+			"Ok, ich habe alle {} gelöscht",
+			"{} gelöscht."
 		],
 		"short": [
-			"Sortiert",
-			"Erledigt"
+			"Erledigt.",
+			"Ok."
 		]
 	},
 	"respondDelete": {
 		"default": [
-			"Keine Sorge habe ich gelöscht, dass {} für Sie.",
-			"Alle sortiert, Ihre {} ist wie niemand hier war aufgeräumt.",
-			"Wow, Ich löschte nicht nur, dass {} i es zum Mars auf eine Mission geschickt.",
-			"Scheint tat ich das richtig. Die {} ist jetzt nicht da."
+			"Ok, ich habe den {} für dich gelöscht.",
+			"Erledigt, ich habe deinen {} gelöscht.",
+			"Von dem {} wirst du nichts mehr hören.",
+			"Der {} ist fort. Ok?"
 		],
 		"short": [
-			"Sortiert",
-			"Erledigt"
+			"Erledigt.",
+			"OK."
 		]
 	},
 	"respondFoodTimer": {
 		"default": [
-			"Hey Chef, wir sind auf halbem Weg durch den Timer. Zeit auf Ihrem Essen zu überprüfen!",
-			"Achtung Koch. Schauen Sie auf Ihr Essen im Falle muss es gerührt oder gedreht.",
-			"Tippen Sie auf, tippen Sie auf. <Pause = „250ms“ /> weiß nicht, ob dieses Mikrofon funktioniert. <Pause = „150ms“ /> Ummmm Achtung Käufer, foodcheck auf Insel 3 bitte",
-			"Muss ich etwas Brandgeruch? Könnte zahlen Scheck auf Ihr Essen gehen jetzt Koch."
+			"Hey chef, wir sind halb durch den Timer. Zeit nach dem Essen zu schauen!",
+			"Aufgepasst. Du solltest mal schauen wie es mit dem Essen aussieht.",
+			"Riecht das hier verbrannt? Sollte doch gerade mal die hälfte der Zeit sein?",
+			"Ich bekomme langsam hunger, wie weit ist das Essen?"
 		],
 		"short": [
-			"Überprüfen Sie Ihr Essen!",
-			"Lebensmittel zu überprüfen, Insel 3!"
+			"Schau mal nach dem Essen!",
+			"Essen ist bald fertig."
 		]
 	},
 	"respondToANoReply": {
 		"default": [
-			"ok Ich werde meine Schaltung zurück Bord zu entstauben und vergessen, dass {} ...",
-			"Sicher, ich vergesse gesagt, du auch nur ein Wort ...",
-			"Ok, ich bin beschäftigt Erwärmung Himbeerkuchen sowieso!"
+			"ok. Dann nicht.",
+			"Dann habe ich von nichts gehört.",
+			"Nagut, dann schlafe ich jetzt weiter."
 		],
 		"short": [
-			"ok, vergessen!",
-			"Sicher!"
+			"ok!",
+			"Klar!"
 		]
 	},
 	"respondSetReminder": {
 		"default": [
-			"Zur Erinnerung eingestellt wurde für {}",
-			"Ich will daran erinnern, auf {0} um die Erinnerung {1}"
+			"Erinnerung wurde auf {} gesetzt",
+			"Ich erinner dich um {0} wegen {1}"
 		],
 		"short": [
-			"Erinnerung ist Set",
-			"Sortiert"
+			"Erinnerung erstellt.",
+			"Erinnerung bereit."
 		]
 	},
 	"respondReminderMessage": {
 		"default": [
-			"Was Nachricht würden Sie wie ich für diese Einstellung vornehmen, {}",
-			"Was Thema möchten Sie mich diese nennen {}"
+			"Welche Nachricht willst du für den {} hinterlegen?",
+			"Wie lautete das Thema für den {}?"
 		],
 		"short": [
-			"was ist die Botschaft!",
-			"was ist die {} Nachricht"
+			"Wie lautet die Nachricht?"
 		]
 	},
 	"respondSetDuration": {
 		"default": [
-			"Was Zeit wollen Sie das {} Set für?",
-			"Wann wollen Sie die {} wieder auftreten?"
+			"Zu welcher Zeit soll der {} sein?",
+			"Wann soll der {} auftreten?"
 		],
 		"short": [
-			"Für WHE?",
-			"Für welche Uhrzeit oder Datum?"
+			"Für wann?",
+			"Uhrzeit? Datum?"
 		]
 	},
 	"respondReminder": {
 		"default": [
-			"Sie haben eine {0} mit der Nachricht {1}",
-			"Das ist Ihre {0} von {1}"
+			"Du hast einen {0} mit der Nachricht{1}",
+			"Das ist dein {0} für {1}"
 		],
 		"short": [
 			"Erinnerung {}"
@@ -99,53 +98,28 @@
 	},
 	"respondConfirmed": {
 		"default": [
-			"Ich habe gerade festgelegt, dass {0} für Sie mit dem Thema {1}. Sie werden von mir hören wieder in {2}",
-			"Ich werde Sie von {1} erinnern in {2}"
+			"Ich habe den {0} mit der Nachricht {1} gespeichert. Ich melde mich dann in {2}",
+			"Ich erinnere dich in {2} wegen {1}."
 		],
 		"short": [
-			"Zur Erinnerung {0} gesetzt"
+			"Erinnerung {0} erstellt"
 		]
 	},
-	"respondNoActive": {
-		"default": [
-			"Sie haben derzeit keine aktiven {} s"
-		],
-		"short": [
-			"Sie haben keine"
-		]
-	},
-	"respondNoNumber": {
-		"default": [
-			"Ich hörte nicht eine Nummer. Bitte versuche es erneut"
-		],
-		"short": [
-			"Bitte Wiederholungszahl"
-		]
-	},
-	"respondAskConfirmation": {
-		"default": [
-			"Sind Sie sicher, dass Sie alle Ihre {} s löschen wollen?"
-		],
-		"short": [
-			"Bist du sicher"
-		]
-	},
-	"respondListOfItems": {
-		"default": [
-			"Bitte wiederholen Sie die Nummer des Artikels, den Sie wollen, dass mich aus der folgenden Liste arbeiten. {0}",
-			"Alrighty. Wählen Sie eine Nummer aus der folgenden Liste. {0}"
-		],
-		"short": [
-			"Wählen Sie aus dieser Liste {0}"
-		]
-	},
-	"databaseError": {
-		"default": [
-			"Leider kann ich nicht, dass man sich erinnern.",
-			"Oh nein, ich bin nicht in der Lage zu erinnern, dass für Sie."
-		],
-		"short": [
-			"erinnern kippt, dass man"
-		]
-	}
+	"respondNoActive": [
+		"Du hast aktuell keinen {}"
+	],
+	"respondNoNumber": [
+		"Die Zahl konnte ich nicht verstehen, bitte nochmal!"
+	],
+	"respondAskConfirmation": [
+		"Bist du dir sicher dass ich alle {} löschen soll?"
+	],
+	"respondListOfItems": [
+		"Bitte wiederhole die Nummer des Eintrags den du bearbeiten willst. {0}",
+		"Ok, bitte wähle eine Nummer au der folgenden Liste. {0}"
+	],
+	"databaseError": [
+		"Da ist was schief gelaufen! Den Timer kann ich mir nicht merken.",
+		"Entschuldigung, das kann ich mir gerade nicht merken."
+	]
 }
