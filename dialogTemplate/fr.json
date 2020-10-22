@@ -507,12 +507,10 @@
 				"{Supprimer tous les:=>ReminderDeleteAll} mes {rappels:=>ReminderSlot}",
 				"{Supprimer tous les:=>ReminderDeleteAll} des {rappels:=>ReminderSlot}",
 				"pouvez-vous:=>ReminderDelete} annuler {{mes rappels:=>ReminderSlot} s'il vous plaît",
-				"{Supprimer tous les:=>ReminderDeleteAll} {courant des rappels:=>ReminderSlot}",
 				"{Suppression:=>ReminderDelete} {mon horloge:=>TimerSlot}",
 				"{Supprimer:=>ReminderDelete} a {timer:=>TimerSlot}",
 				"{Supprimer tout:=>ReminderDeleteAll} du {{0} timer",
 				"pouvez-vous supprimer tous les {{0} mes:=>ReminderDeleteAll} {minuteries s'il vous plaît",
-				"{Supprimer tous les:=>ReminderDeleteAll} {courant minuteries:=>TimerSlot}",
 				"{Supprimer tous les:=>ReminderDeleteAll} mes {minuteries:=>TimerSlot}",
 				"{Supprimer tous les:=>ReminderDeleteAll} des {minuteries:=>TimerSlot}",
 				"pouvez-vous:=>ReminderDelete} annuler {{mes minuteries:=>TimerSlot} s'il vous plaît",
@@ -524,7 +522,6 @@
 				"{Supprimer tous les:=>ReminderDeleteAll} mes {alarmes:=>AlarmSlot}",
 				"{Supprimer tous les:=>ReminderDeleteAll} des {alarmes:=>AlarmSlot}",
 				"pouvez-vous:=>ReminderDelete} annuler {{mes alarmes:=>AlarmSlot} s'il vous plaît",
-				"{Supprimer tous les:=>ReminderDeleteAll} {courant des alarmes:=>AlarmSlot}",
 				"{Supprimer tous les:=>ReminderDeleteAll} {courant des alarmes:=>AlarmSlot}"
 			],
 			"slots": [

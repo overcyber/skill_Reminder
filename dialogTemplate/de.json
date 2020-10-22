@@ -354,7 +354,6 @@
 			"utterances": [
 				"{30 Minuten:=>Duration}",
 				"{10 Minuten:=>Duration}",
-				"{3 Minuten:=>Duration}",
 				"{2 Stunden:=>Duration}",
 				"{In 1 Stunde:=>Duration} Dank",
 				"{1 Stunde:=>Duration} bitte",
