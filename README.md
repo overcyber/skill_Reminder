@@ -78,6 +78,5 @@ In the following utternaces you can do as above to change between reminder or ti
    - Add a widget to :
                      * enable/disable sounds
                      * choose sound files to use
-                     * Set "food timer" mid point reminder time 
     
 NOTES. *This will not work effectively using the text input widget due to several settings requiring continued dialog*

@@ -353,8 +353,12 @@
         	"enabledByDefault": false,
         	"utterances": [
 				"{30 minutes:=>Duration}",
+				"maybe in about {30 minutes:=>Duration}",
+				"in about {2 minutes:=>Duration}",
+				"{3 minutes:=>Duration} should do it",
 				"{for 10 minutes:=>Duration}",
 				"{in 3 minutes:=>Duration}",
+				"in {5 minutes:=>Duration}",
 				"{for 2 hours:=>Duration}",
 				"{in 1 hour:=>Duration} thanks",
 				"{for 1 hour:=>Duration} please",
