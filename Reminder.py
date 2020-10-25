@@ -1,4 +1,5 @@
 import time
+
 from datetime import datetime, timedelta
 from core.base.model.AliceSkill import AliceSkill
 from core.base.model.Intent import Intent
@@ -8,10 +9,11 @@ from core.util.Decorators import IntentHandler
 
 class Reminder(AliceSkill):
 	"""
-	Author: Lazza. This skill utilises these main methods for functional operation
+	Author: @Lazza.
+	 This skill utilises these main methods for functional operation
 		- addReminder initiates the reminder process between user and Alice
 		- Then passes onto processTheSpecifiedTime() for processing of the time
-		- then onto maincode() for finalising the timer
+		- then onto processAndStoreReminder() for finalising the timer
 			Amongst that process there are methods for converting spoken times to epoch and back to human time
 			and Various other functions and checks, delete, how long left, etc
 			Also one main Method which allows switching between the three events (Reminder/Timer/Alarm) is the
@@ -110,6 +112,10 @@ class Reminder(AliceSkill):
 			'askWhatItemFromList' : self.extractRequestedItemFromList
 		}
 
+		self._INTENT_ADD_DATE.dialogMapping = {
+			'AddedTheDateOrDuration': self.addReminder,
+
+		}
 		super().__init__(self._INTENTS, databaseSchema=self._DATABASE)
 
 
@@ -119,7 +125,6 @@ class Reminder(AliceSkill):
 		self.logInfo(f'Doing database maintenance')
 		self.cleanupDeadTimers()
 		self.onFiveMinute()
-
 
 	def runShortTimer(self, event: str):
 		self.reminderSound(event)
@@ -131,10 +136,12 @@ class Reminder(AliceSkill):
 		)
 
 
-	# This is called directly by the mapping for intents because DURATION was specified
 	def addReminder(self, session: DialogSession):
+		"""
+		Ask user for missing details or triggers a short timer if that was requested
+		"""
 		self.setEventType(session)
-		# if user set a short time do this
+		# if user set a short timer (no topic) do this
 		if 'ShortTimer' in session.slots and 'Duration' in session.slots:
 			self._secondsDuration = self.Commons.getDuration(session)
 			self._reminderMessage = 'for the timer with no topic'
@@ -150,7 +157,7 @@ class Reminder(AliceSkill):
 			)
 			return
 
-		# If theres no reminder date or duration specified then ask for a message
+		# If there's a event date or duration specified then ask for a message
 		if f'{self._eventType}DateAndTime' in session.slots or 'Duration' in session.slots:
 			self.continueDialog(
 				sessionId=session.sessionId,
@@ -158,19 +165,24 @@ class Reminder(AliceSkill):
 				intentFilter=[self._INTENT_USER_RANDOM_ANSWER],
 				currentDialogState='AddMessageToReminder'
 			)
-
+		# If there's no time set then ask for one
 		else:
 			if f'{self._eventType}DateAndTime' not in session.slots or 'Duration' not in session.slots:
+				print(f' yes i\'m here on line 168')
 				self.continueDialog(
 					sessionId=session.sessionId,
 					text=self.randomTalk(text='respondSetDuration', replace=[self._eventType]),
 					intentFilter=[self._INTENT_ADD_DATE],
 					currentDialogState='AddedTheDateOrDuration',
-					slot='ReminderDateAndTime'
+					slot='ReminderDateAndTime' or 'Duration'
 				)
 
 
 	def processTheSpecifiedTime(self, session: DialogSession):
+		"""
+		Process the requested Time/Date/Duration so we can later use that in the reminder
+		"""
+		print(f' specified time is {session.slotsAsObjects}')
 		if f'{self._eventType}DateAndTime' in session.slotsAsObjects:
 
 			self._spokenDuration = session.slotValue(f'{self._eventType}DateAndTime').split()  # returns format [2020-04-08, 10:25:00, +10]
@@ -196,9 +208,14 @@ class Reminder(AliceSkill):
 			self.processAndStoreReminder(session, secs)
 
 
-	# This does the actual setting of the timer details and storing to Db
-	def processAndStoreReminder(self, session: DialogSession, secs: int):
 
+	def processAndStoreReminder(self, session: DialogSession, secs: int):
+		"""
+		This does the actual setting of the event and the storing to the database
+		:param session: The dialog Session
+		:param secs: The seconds between "now" and when the event is to trigger
+		:return:
+		"""
 		self.logDebug(f'The requested time converted to seconds is {secs}')
 
 		# count of the amount of rows in the Database
@@ -372,11 +389,15 @@ class Reminder(AliceSkill):
 			i += 1
 
 
-	# This sets "self._dbTableValues" to a list of all current Database table values
+
 	def viewTableValues(self):
+		"""
+		Retrieve all database values and put into vars to reduce database reads later on
+		"""
 		# self.updateInternalIdNumberOfDb()  # resets internalId column to rowid value
 
 		# Todo What??
+		# Answer = try and reduce db reads
 		dbTableList = []
 		for row in self.databaseFetch(
 				tableName=self._activeDataBase,
@@ -602,7 +623,7 @@ class Reminder(AliceSkill):
 		self.cleanupDeadTimers()
 
 
-	# This does a 5 minute check of the stored timers and if a timer is within 320 seconds of activating
+	# This does a 5 minute check of the stored timers and if a timer is within 299 seconds of activating
 	# then we initiate the actual timer thread
 	def onFiveMinute(self):
 		self.viewTableValues()
@@ -716,16 +737,6 @@ class Reminder(AliceSkill):
 	def stopReminderIntent(self, session: DialogSession):
 		self.setEventType(session)
 		self.getItemFromList(session)
-
-
-	@IntentHandler('ReminderTime')
-	def addRemiderIntent(self, session: DialogSession):
-		"""
-		this method is likely to be removed in the near future. No need for it
-		:param session:
-		:return:
-		"""
-		pass
 
 
 	@IntentHandler('ReminderMessage')

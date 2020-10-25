@@ -1,16 +1,3 @@
-# Reminder
-
-[![Continous Integration](https://gitlab.com/project-alice-assistant/skills/skill_Reminder/badges/master/pipeline.svg)](https://gitlab.com/project-alice-assistant/skills/skill_Reminder/pipelines/latest) [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=project-alice-assistant_skill_Reminder&metric=alert_status)](https://sonarcloud.io/dashboard?id=project-alice-assistant_skill_Reminder)
-
-Set local reminders such as "Set a reminder in 10 minutes to ring bob"
-
-- Author: Lazza
-- Maintainers: Psycho, Philipp
-- Alice minimum Version: 1.0.0-b1
-- Languages:
-    en
-    de
-
 **Using this Reminder:**
 
 You can set a reminder / timer or alarm by saying the following examples to Alice
@@ -74,9 +61,5 @@ In the following utternaces you can do as above to change between reminder or ti
  To replace the sound file with one of your choice just make sure the new sound file is named
     the same. IE: Reminder.wav unless you want to edit the code to suit
  
- **Potential future enhancments**
-   - Add a widget to :
-                     * enable/disable sounds
-                     * choose sound files to use
-    
+     
 NOTES. *This will not work effectively using the text input widget due to several settings requiring continued dialog*
