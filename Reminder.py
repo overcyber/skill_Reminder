@@ -168,7 +168,6 @@ class Reminder(AliceSkill):
 		# If there's no time set then ask for one
 		else:
 			if f'{self._eventType}DateAndTime' not in session.slots or 'Duration' not in session.slots:
-				print(f' yes i\'m here on line 168')
 				self.continueDialog(
 					sessionId=session.sessionId,
 					text=self.randomTalk(text='respondSetDuration', replace=[self._eventType]),
@@ -182,7 +181,6 @@ class Reminder(AliceSkill):
 		"""
 		Process the requested Time/Date/Duration so we can later use that in the reminder
 		"""
-		print(f' specified time is {session.slotsAsObjects}')
 		if f'{self._eventType}DateAndTime' in session.slotsAsObjects:
 
 			self._spokenDuration = session.slotValue(f'{self._eventType}DateAndTime').split()  # returns format [2020-04-08, 10:25:00, +10]
