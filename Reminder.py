@@ -68,7 +68,7 @@ class Reminder(AliceSkill):
 		self._secondsDuration = ''
 		self._reminderMessage = ''
 		self._dbId = 0
-		self._theSiteId = self.getAliceConfig('deviceName')
+		self._theSiteId = self.DeviceManager.getMainDevice().uid
 		self._dbTableValues = list()
 		self._selectedMessages = None
 		self._dbTimeStampList = list()
@@ -298,7 +298,7 @@ class Reminder(AliceSkill):
 
 
 	def foodReminder(self):
-		self.say(self.randomTalk(text='respondFoodTimer'), siteId=self._theSiteId)
+		self.say(self.randomTalk(text='respondFoodTimer'), deviceUid=self._theSiteId)
 
 
 	# required
@@ -382,7 +382,7 @@ class Reminder(AliceSkill):
 			except:
 				self.ThreadManager.doLater(
 					interval=300,
-					func=self.updateInternalIdNumberOfDb()
+					func=self.updateInternalIdNumberOfDb
 				)
 			i += 1
 
@@ -422,7 +422,7 @@ class Reminder(AliceSkill):
 		self.endDialog(
 			sessionId=session.sessionId,
 			text=self.randomTalk('respondTimeRemaining', replace=[convertedTime, self._eventType]),
-			siteId=session.siteId
+			deviceUid=session.deviceUid
 		)
 
 
@@ -550,7 +550,7 @@ class Reminder(AliceSkill):
 		self.endDialog(
 			sessionId=session.sessionId,
 			text=self.randomTalk('respondDelete', replace=[self._eventType]),
-			siteId=session.siteId
+			deviceUid=session.deviceUid
 		)
 		self.cleanupDeadTimers()
 
@@ -601,7 +601,7 @@ class Reminder(AliceSkill):
 			self.endDialog(
 				sessionId=session.sessionId,
 				text=self.randomTalk('respondDelete', replace=[self._eventType]),
-				siteId=session.siteId,
+				deviceUid=session.deviceUid,
 			)
 
 			self.logInfo(f'Successfully deleted the requested {self._eventType} from the database')
@@ -610,7 +610,7 @@ class Reminder(AliceSkill):
 			self.endDialog(
 				sessionId=session.sessionId,
 				text=self.randomTalk('respondDeleteAll', replace=[self._eventType]),
-				siteId=session.siteId,
+				deviceUid=session.deviceUid,
 			)
 			# noinspection SqlWithoutWhere
 			self.DatabaseManager.delete(
@@ -658,7 +658,7 @@ class Reminder(AliceSkill):
 					)
 					self.ThreadManager.doLater(
 						interval=cleanUpSeconds,
-						func=self.viewTableValues()
+						func=self.viewTableValues
 					)
 			i += 1
 
@@ -677,13 +677,13 @@ class Reminder(AliceSkill):
 			soundFilename=soundFile,
 			location=self.getResource(f'Sounds/{path}'),
 			sessionId='ReminderTriggered',
-			siteId=self._theSiteId
+			deviceUid=self._theSiteId
 		)
 
 
 	# Critical method for allowing reminder/timer/alarm to all play nicely together
 	def setEventType(self, session: DialogSession):
-		self._theSiteId = session.siteId
+		self._theSiteId = session.deviceUid
 
 		if 'ReminderEvent' in session.slots or 'ReminderSlot' in session.slots or 'ReminderStop' in session.slots:
 			self._eventType = 'Reminder'
