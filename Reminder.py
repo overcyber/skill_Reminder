@@ -68,7 +68,7 @@ class Reminder(AliceSkill):
 		self._secondsDuration = ''
 		self._reminderMessage = ''
 		self._dbId = 0
-		self._theSiteId = self.DeviceManager.getMainDevice().uid
+		self._theSiteId = ""
 		self._dbTableValues = list()
 		self._selectedMessages = None
 		self._dbTimeStampList = list()
@@ -135,6 +135,10 @@ class Reminder(AliceSkill):
 			),
 		)
 
+	def onBooted(self) -> bool:
+		self._theSiteId = self.DeviceManager.getMainDevice().uid
+		super().onBooted()
+		return True
 
 	def addReminder(self, session: DialogSession):
 		"""
