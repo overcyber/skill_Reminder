@@ -147,5 +147,32 @@
 		"short": [
 			"Can't remember that one..."
 		]
+	},
+	"brushingTeeth": {
+		"default": [
+			"Stop brushing your teeth now",
+			"Time to stop brushing your Teeth"
+		],
+		"short": [
+			"Stop"
+		]
+	},
+	"washingHands": {
+		"default": [
+			"Stop washing your hands now",
+			"Time to stop washing your hands"
+		],
+		"short": [
+			"Stop"
+		]
+	},
+	"teaReady": {
+		"default": [
+			"your {0} of tea is ready ",
+			"the {0} of tea is brewed to perfection now"
+		],
+		"short": [
+			"tea is ready"
+		]
 	}
 }
