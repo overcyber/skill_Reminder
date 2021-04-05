@@ -5,7 +5,7 @@ from core.base.model.AliceSkill import AliceSkill
 from core.base.model.Intent import Intent
 from core.dialog.model.DialogSession import DialogSession
 from core.util.Decorators import IntentHandler
-
+from core.device.model.DeviceAbility import DeviceAbility
 
 class Reminder(AliceSkill):
 	"""
@@ -51,6 +51,7 @@ class Reminder(AliceSkill):
 			DB_EVENT_TYPE
 		]
 	}
+	_INTENT_PREDEFINED_TIMER = Intent('PreDefinedTimerEvent')
 	_INTENT_ADD_REMINDER = Intent('ReminderEvent')
 	_INTENT_ADD_DATE = Intent('ReminderTime')
 	_INTENT_ANSWER_YES_OR_NO = Intent('AnswerYesOrNo')
@@ -68,7 +69,7 @@ class Reminder(AliceSkill):
 		self._secondsDuration = ''
 		self._reminderMessage = ''
 		self._dbId = 0
-		self._theSiteId = ""
+		self._theDeviceId = ""
 		self._dbTableValues = list()
 		self._selectedMessages = None
 		self._dbTimeStampList = list()
@@ -79,8 +80,10 @@ class Reminder(AliceSkill):
 		self._activeDataBase = 'MyReminders'
 		self._dataBaseList = ['MyReminders', 'MyTimer', 'MyAlarm']
 		self._TimerEventType = list()
+		self._preDefinedEvent = False
 
 		self._INTENTS = [
+			(self._INTENT_PREDEFINED_TIMER, self.determinePreDefinedTimer),
 			self._INTENT_ANSWER_YES_OR_NO,
 			self._INTENT_ADD_DATE,
 			self._INTENT_SELECT_ITEM,
@@ -92,6 +95,10 @@ class Reminder(AliceSkill):
 		self._INTENT_ANSWER_YES_OR_NO.dialogMapping = {
 			'ConfirmIfDeletingAllMessages': self.actionFromYesNoAnswer,
 			# 'ConfirmIfMessageAndTimeCorrect': self.processTheSpecifiedTime
+
+		}
+		self._INTENT_PREDEFINED_TIMER.dialogMapping = {
+			'DoPredefinedTimerEvent': self.determinePreDefinedTimer,
 
 		}
 
@@ -136,7 +143,7 @@ class Reminder(AliceSkill):
 		)
 
 	def onBooted(self) -> bool:
-		self._theSiteId = self.DeviceManager.getMainDevice().uid
+		self._theDeviceId = self.DeviceManager.getMainDevice().uid
 		super().onBooted()
 		return True
 
@@ -180,11 +187,49 @@ class Reminder(AliceSkill):
 					slot='ReminderDateAndTime' or 'Duration'
 				)
 
+	def determinePreDefinedTimer(self, session: DialogSession):
+		"""
+		Work out what pre determined timer event it is and set the message and time accordingly
+		:param session: the dialog Session
+		:return:
+		"""
+		# set some vars so we can merge the event with existing timer code
+		self._theDeviceId = session.deviceUid
+		self._eventType = 'Timer'
+		self._activeDataBase = self._TIMERDBNAME
+		self._preDefinedEvent = True
 
-	def processTheSpecifiedTime(self, session: DialogSession):
+		# work out what pre determined timer the user is requesting
+		if session.slotValue('PreDefinedTimer') == 'wash hands':
+			session.payload['input'] = self.randomTalk(text='washingHands')
+			self.processTheSpecifiedTime(session, preDefinedTime=20)
+
+		if session.slotValue('PreDefinedTimer') == 'brush teeth':
+			session.payload['input'] = self.randomTalk(text='brushingTeeth')
+			self.processTheSpecifiedTime(session, preDefinedTime=120)
+
+		if session.slotValue('PreDefinedTimer') == 'cup of tea':
+			session.payload['input'] = self.randomTalk(text='teaReady', replace=['cup'])
+			self.processTheSpecifiedTime(session, preDefinedTime=180)
+
+		if session.slotValue('PreDefinedTimer') == 'pot of tea':
+			session.payload['input'] = self.randomTalk(text='teaReady', replace=['pot'])
+			self.processTheSpecifiedTime(session, preDefinedTime=420)
+
+
+	def processTheSpecifiedTime(self, session: DialogSession, preDefinedTime: int = None):
 		"""
 		Process the requested Time/Date/Duration so we can later use that in the reminder
+
+		:param session: The dialog Session
+		:param preDefinedTime: If it's a preDefinedTimer event then this will be the seconds of the timer to use
+		:return:
 		"""
+		if preDefinedTime:
+			self._reminderMessage = session.payload['input']  # set the reminder message
+			self.processAndStoreReminder(session=session, secs=preDefinedTime)
+			return
+
 		if f'{self._eventType}DateAndTime' in session.slotsAsObjects:
 
 			self._spokenDuration = session.slotValue(f'{self._eventType}DateAndTime').split()  # returns format [2020-04-08, 10:25:00, +10]
@@ -192,17 +237,14 @@ class Reminder(AliceSkill):
 			self._dateTimeStr = ' '.join(self._spokenDuration)  # converts the list to a string
 			self._dateTimeObject = datetime.strptime(self._dateTimeStr, '%Y-%m-%d %H:%M:%S')
 			self._secondsDuration = self._dateTimeObject - datetime.today()  # find the difference between requested time and now
-
 		if 'Duration' in session.slotsAsObjects:
 			self._secondsDuration = self.Commons.getDuration(session)  # Gets the requested duration in seconds
-
 		self._reminderMessage = session.payload['input']  # set the reminder message
 
 		if f'{self._eventType}DateAndTime' in session.slotsAsObjects:  # Convert to Seconds if its called with DateAndTime slot
 			secs = round(self._secondsDuration.total_seconds())
 		else:
 			secs = self._secondsDuration  # Seconds are already converted so set the secs var
-
 		if 'Food' in session.slots:
 			self.setFoodTimer(session, secs)
 
@@ -278,7 +320,7 @@ class Reminder(AliceSkill):
 			if secs >= 299:
 				self.databaseInsert(
 					tableName=self._activeDataBase,
-					values={'internalID': myTablecount + 1, 'message': self._reminderMessage, 'timestamp': timeStampForDb, 'SiteID': self._theSiteId, 'EventType': self._eventType}
+					values={'internalID': myTablecount + 1, 'message': self._reminderMessage, 'timestamp': timeStampForDb, 'SiteID': self._theDeviceId, 'EventType': self._eventType}
 				)
 		except Exception as e:
 			self.logError(f'Failed to enable timer due to **Database** error: {e}')
@@ -298,11 +340,11 @@ class Reminder(AliceSkill):
 	# Respond with The Reminder once time is finished,
 	def runReminder(self, event: str, savedMessage: str):
 		self.reminderSound(event)
-		self.ThreadManager.doLater(interval=0.5, func=self.say, kwargs={'text': self.randomTalk(text='respondReminder', replace=[event, savedMessage]), 'siteId': self._theSiteId})
+		self.ThreadManager.doLater(interval=5, func=self.say, kwargs={'text': self.randomTalk(text='respondReminder', replace=[event, savedMessage]), 'deviceUid': self._theDeviceId})
 
 
 	def foodReminder(self):
-		self.say(self.randomTalk(text='respondFoodTimer'), deviceUid=self._theSiteId)
+		self.say(self.randomTalk(text='respondFoodTimer'), deviceUid=self._theDeviceId)
 
 
 	# required
@@ -681,13 +723,13 @@ class Reminder(AliceSkill):
 			soundFilename=soundFile,
 			location=self.getResource(f'Sounds/{path}'),
 			sessionId='ReminderTriggered',
-			deviceUid=self._theSiteId
+			deviceUid=self._theDeviceId
 		)
 
 
 	# Critical method for allowing reminder/timer/alarm to all play nicely together
 	def setEventType(self, session: DialogSession):
-		self._theSiteId = session.deviceUid
+		self._theDeviceId = session.deviceUid
 
 		if 'ReminderEvent' in session.slots or 'ReminderSlot' in session.slots or 'ReminderStop' in session.slots:
 			self._eventType = 'Reminder'

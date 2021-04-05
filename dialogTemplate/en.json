@@ -19,6 +19,47 @@
 			]
 		},
 		{
+			"name": "PreDefinedTimer",
+			"matchingStrictness": null,
+			"automaticallyExtensible": true,
+			"useSynonyms": true,
+			"values": [
+				{
+					"value": "wash hands",
+					"synonyms": [
+						"washing hands",
+						"washing my hands",
+						"washing our hands",
+						"clean hands",
+						"cleaning hands",
+						"cleaning my hands",
+						"cleaning our hands"
+					]
+				},
+				{
+					"value": "brush teeth",
+					"synonyms": [
+						"brushing teeth",
+						"brushing my teeth",
+						"brushing our teeth"
+					]
+				},
+				{
+					"value": "cup of tea",
+					"synonyms": [
+						"tea time",
+						"short tea"
+					]
+				},
+				{
+					"value": "pot of tea",
+					"synonyms": [
+						"long tea"
+					]
+				}
+			]
+		},
+		{
 			"name": "AlarmEvent",
 			"matchingStrictness": null,
 			"automaticallyExtensible": true,
@@ -234,6 +275,25 @@
 					"name": "Duration",
 					"required": false,
 					"type": "snips/duration",
+					"missingQuestion": ""
+				}
+			]
+		},
+		{
+			"name": "PreDefinedTimerEvent",
+			"enabledByDefault": true,
+			"utterances": [
+				"Time to {brush teeth:=>PreDefinedTimer}",
+				"It's {pot of tea:=>PreDefinedTimer} time",
+				"I'm making a {cup of tea:=>PreDefinedTimer}",
+				"tell me when to stop {washing hands:=>PreDefinedTimer}",
+				"we're {brushing our teeth:=>PreDefinedTimer}"
+			],
+			"slots": [
+				{
+					"name": "PreDefinedTimer",
+					"required": false,
+					"type": "PreDefinedTimer",
 					"missingQuestion": ""
 				}
 			]

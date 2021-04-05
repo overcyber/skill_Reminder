@@ -63,3 +63,21 @@ In the following utternaces you can do as above to change between reminder or ti
  
      
 NOTES. *This will not work effectively using the text input widget due to several settings requiring continued dialog*
+
+###Some Pre defined timers
+
+The reminder skill comes with some pre defined timers for quick action.
+These are as follows:
+
+1. Brushing teeth - 2 minute timer
+2. Making cup of tea - 3 minute timer
+3. Making a pot of tea - 7 minutes
+4. Washing your hands - 20 second timer
+
+To activate any of these try saying sentences such as the below. or variations of it
+
+- "Time to brush my teeth"
+- "It's pot of tea time"
+- "I'm making a cup of tea"
+- "tell me when to stop washing my hands"
+- "we're brushing our teeth"
