@@ -395,12 +395,7 @@ class Reminder(AliceSkill):
 
 	# This returns the amount of rows in the database table
 	def tableRowCount(self) -> int:
-		dbRows = self.databaseFetch(
-					tableName=self._activeDataBase,
-					query='SELECT COUNT () FROM :__table__',
-					method='one'
-				)
-		return dbRows[0]
+		return self.databaseFetch(tableName=self._activeDataBase, query='SELECT COUNT () FROM :__table__')[0]
 
 
 	# This updates the internalID value to match table rowid
@@ -443,12 +438,7 @@ class Reminder(AliceSkill):
 		# Todo What??
 		# Answer = try and reduce db reads
 		dbTableList = []
-		for row in self.databaseFetch(
-				tableName=self._activeDataBase,
-				query='SELECT * FROM :__table__ ',
-				method='all'
-		):
-
+		for row in self.databaseFetch(tableName=self._activeDataBase, query='SELECT * FROM :__table__ '):
 			if tuple(row):
 				dbTableList.append(tuple(row))
 

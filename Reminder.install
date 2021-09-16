@@ -1,7 +1,7 @@
 {
     "name": "Reminder",
     "speakableName": "Reminder skill",
-    "version": "1.2.2",
+    "version": "1.2.3",
     "icon": "fas fa-hourglass-half",
     "category": "organisation",
     "author": "Lazza",
@@ -10,7 +10,7 @@
         "philipp2310"
     ],
     "desc": "Set local reminders such as \"set a reminder in 10 minutes\"",
-    "aliceMinVersion": "1.0.0-b5",
+    "aliceMinVersion": "1.0.0-rc1",
     "systemRequirements": [],
     "pipRequirements": [],
     "conditions": {
