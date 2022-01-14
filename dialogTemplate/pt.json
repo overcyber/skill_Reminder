@@ -1,0 +1,618 @@
+{
+    "skill": "Reminder",
+    "slotTypes": [
+		{
+			"name": "ShortTimer",
+			"matchingStrictness": null,
+			"automaticallyExtensible": true,
+			"useSynonyms": true,
+			"values": [
+				{
+					"value": "short",
+					"synonyms": [
+						"simples",
+						"rapido",
+						"breve",
+						"preguiçoso"
+					]
+				}
+			]
+		},
+		{
+			"name": "AlarmEvent",
+			"matchingStrictness": null,
+			"automaticallyExtensible": true,
+			"useSynonyms": true,
+			"values": [
+				{
+					"value": "alarm",
+					"synonyms": [
+						"Alarme",
+						"alarmes",
+						"alarme",
+						"me acorde",
+						"me acorde"
+					]
+				}
+			]
+		},
+		{
+			"name": "TimerEvent",
+			"matchingStrictness": null,
+			"automaticallyExtensible": true,
+			"useSynonyms": true,
+			"values": [
+				{
+					"value": "timer",
+					"synonyms": [
+						"Cronômetro",
+						"cronômetros"
+					]
+				}
+			]
+		},
+		{
+			"name": "Food",
+			"matchingStrictness": null,
+			"automaticallyExtensible": true,
+			"useSynonyms": true,
+			"values": [
+				{
+					"value": "food",
+					"synonyms": [
+						"pizza",
+						"galinha",
+						"frango frito",
+						"lazanha"
+					]
+				}
+			]
+		},
+		{
+			"name": "TimerRemaining",
+			"matchingStrictness": null,
+			"automaticallyExtensible": true,
+			"useSynonyms": true,
+			"values": [
+				{
+					"value": "remaining",
+					"synonyms": [
+						"quanto tempo",
+						"tempo restante"
+					]
+                }
+            ]
+        },
+		{
+            "name": "TimerStop",
+            "matchingStrictness": null,
+            "automaticallyExtensible": true,
+			"useSynonyms": true,
+			"values": [
+				{
+					"value": "stop",
+					"synonyms": [
+						"cancelar",
+						"pare",
+						"parar",
+						"cancele"
+					]
+				}
+			]
+		},
+		{
+			"name": "AlarmRemaining",
+			"matchingStrictness": null,
+			"automaticallyExtensible": true,
+			"useSynonyms": true,
+			"values": [
+				{
+					"value": "remaining",
+					"synonyms": [
+						"quanto tempo",
+						"tempo restante",
+						"quanto tempo falta"
+					]
+				}
+			]
+		},
+		{
+			"name": "AlarmStop",
+			"matchingStrictness": null,
+			"automaticallyExtensible": true,
+			"useSynonyms": true,
+			"values": [
+				{
+					"value": "stop",
+					"synonyms": [
+						"cancele",
+						"pare",
+						"cancelar"
+					]
+				}
+			]
+		},
+		{
+			"name": "ReminderEvent",
+			"matchingStrictness": null,
+			"automaticallyExtensible": true,
+			"useSynonyms": true,
+			"values": [
+				{
+					"value": "reminder",
+					"synonyms": [
+						"Lembrete",
+						"lembrar",
+						"lembre",
+						"lembretes"
+					]
+                }
+            ]
+        },
+		{
+			"name": "StopEvent",
+			"matchingStrictness": null,
+			"automaticallyExtensible": true,
+			"useSynonyms": true,
+			"values": [
+				{
+					"value": "stop",
+					"synonyms": [
+						"cancele",
+						"pare",
+						"cancelar"
+					]
+				}
+            ]
+        },
+		{
+            "name": "ReminderDelete",
+            "matchingStrictness": null,
+            "automaticallyExtensible": true,
+            "useSynonyms": true,
+            "values": [
+                {
+                    "value": "delete",
+                    "synonyms": [
+						"remova",
+						"delete",
+						"apague"
+					]
+                }
+            ]
+        },
+		{
+            "name": "ReminderDeleteAll",
+            "matchingStrictness": null,
+            "automaticallyExtensible": true,
+            "useSynonyms": true,
+            "values": [
+                {
+                    "value": "delete all",
+                    "synonyms": [
+						"deletar tudo",
+						"delete todos",
+						"apague tudo",
+						"remova todos"
+					]
+                }
+            ]
+        },
+		{
+            "name": "ReminderRemainingTime",
+            "matchingStrictness": null,
+            "automaticallyExtensible": true,
+            "useSynonyms": true,
+            "values": [
+                {
+                    "value": "remaining",
+                    "synonyms": [
+                        "falta tempo",
+						"quanto tempo"
+					]
+                }
+            ]
+        }
+	],
+    "intents": [
+		{
+			"name": "SetUpAlarm",
+			"enabledByDefault": true,
+			"utterances": [
+				"Defina um {Alarme:=>AlarmEvent} para {1 hora:=>Duration}",
+				"Defina um {alarme:=>AlarmEvent} para {1 minuto:=>Duration}",
+				"Você pode criar um {Alarme:=>AlarmEvent} para {3 horas:=>Duration} por favor",
+				"Você pode criar um {Alarme:=>AlarmEvent} para {3 horas:=>Duration}",
+				"Defina um {alarme:=>AlarmEvent} em {10 minutos:=>Duration}",
+				"Defina um {alarme:=>AlarmEvent} para {10 minutos:=>Duration}",
+				"Crie um {Alarme:=>AlarmEvent} para {20 minutos:=>Duration} por favor",
+				"Crie um {Alarme:=>AlarmEvent} para {20 minutos:=>Duration} por favor",
+				"Defina um {15 minute:=>Duration} {alarm:=>AlarmEvent} please",
+				"Defina um {alarme:=>AlarmEvent} para {terça-feira as 8 am:=>AlarmDateAndTime}",
+				"Defina um {alarme:=>AlarmEvent} para {10 minutos:=>AlarmDateAndTime}",
+				"Adicione {20 minutos:=>AlarmDateAndTime} ao {alarme:=>AlarmEvent}",
+				"crie um {alarme:=>AlarmEvent} para {2 pm:=>AlarmDateAndTime}",
+				"Adicione um {alarme:=>AlarmEvent} para {4 pm:=>AlarmDateAndTime}",
+				"{me acorde:=>AlarmEvent} em {20 minutos:=>Duration} please",
+				"por favor {me acorde:=>AlarmEvent} em {20 minutos:=>Duration}"
+			],
+			"slots": [
+				{
+					"name": "AlarmEvent",
+					"required": false,
+					"type": "AlarmEvent",
+					"missingQuestion": ""
+				},
+				{
+					"name": "AlarmDateAndTime",
+					"required": false,
+					"type": "snips/datetime",
+					"missingQuestion": ""
+				},
+				{
+					"name": "Duration",
+					"required": false,
+					"type": "snips/duration",
+					"missingQuestion": ""
+				}
+			]
+		},
+		{
+			"name": "SetUpTimer",
+			"enabledByDefault": true,
+			"utterances": [
+				"Defina um {timer:=>TimerEvent} para {1 hora:=>Duration}",
+				"Defina um {timer:=>TimerEvent} para {1 minuto:=>Duration}",
+				"Você pode criar um {timer:=>TimerEvent} para {3 hours:=>Duration} please",
+				"Defina um {timer:=>TimerEvent} in {10 minutos:=>Duration}",
+				"Crie um {timer:=>TimerEvent} para {20 minutos:=>Duration} please",
+				"Defina um {food:=>Food} {timer:=>TimerEvent} para {20 minutos:=>Duration}",
+				"Defina um {pizza:=>Food} {timer:=>TimerEvent} para {20 minutos:=>Duration}",
+				"Crie um {timer:=>TimerEvent} de {comida:=>Food}  para {5 minutos:=>Duration} por favor",
+				"Crie um {timer:=>TimerEvent} de {comida:=>Food}  para {5 minutos:=>Duration}",
+				"Defina um {timer:=>TimerEvent} de {food:=>Food} para {15 minutos:=>Duration} por favor",
+				"Defina um {timer:=>TimerEvent} de {food:=>Food} para {15 minutos:=>Duration} ",
+				"Defina um {Timer:=>TimerEvent} para {tuesday at 8 am:=>TimerDateAndTime}",
+				"Defina um {Timer:=>TimerEvent} para {10 minutos:=>TimerDateAndTime}",
+				"Add a {20 minutos:=>TimerDateAndTime} {Timer:=>TimerEvent}",
+				"Crie um {Timer:=>TimerEvent} para {2 pm:=>TimerDateAndTime}",
+				"Add a {Timer:=>TimerEvent} para {4pm:=>TimerDateAndTime}",
+				"Defina um {short:=>ShortTimer} {timer:=>TimerEvent} para {5 minutos:=>Duration}",
+				"Crie um {short:=>ShortTimer} {timer:=>TimerEvent} para {7 minutos:=>Duration}",
+				"Defina um {quick:=>ShortTimer} {timer:=>TimerEvent} para {3 minutos:=>Duration}",
+				"Defina um {simple:=>ShortTimer} {timer:=>TimerEvent} para {7 minutos:=>Duration} please",
+				"add a {breif:=>ShortTimer} {timer:=>TimerEvent} para {7 minutos:=>Duration} please"
+			],
+			"slots": [
+				{
+					"name": "ShortTimer",
+					"required": false,
+					"type": "ShortTimer",
+					"missingQuestion": ""
+				},
+				{
+					"name": "TimerEvent",
+					"required": false,
+					"type": "TimerEvent",
+					"missingQuestion": ""
+				},
+				{
+					"name": "TimerDateAndTime",
+					"required": false,
+					"type": "snips/datetime",
+					"missingQuestion": ""
+				},
+				{
+					"name": "Duration",
+					"required": false,
+					"type": "snips/duration",
+					"missingQuestion": ""
+				},
+				{
+					"name": "Food",
+					"required": false,
+					"type": "Food",
+					"missingQuestion": ""
+				}
+			]
+		},
+		{
+			"name": "ReminderEvent",
+			"enabledByDefault": true,
+			"utterances": [
+				"Can you {Lembrete:=>ReminderEvent} something para me",
+				"I need to {Lembrete:=>ReminderEvent} something",
+				"Defina um {Lembrete:=>ReminderEvent} please",
+				"Defina um {Lembrete:=>ReminderEvent} {in 30 seconds:=>Duration} please",
+				"Defina um {30 seconds:=>Duration} {Lembrete:=>ReminderEvent}",
+				"Add a {10 minute:=>Duration} {Lembrete:=>ReminderEvent}",
+				"Defina um {Lembrete:=>ReminderEvent} {in 3 hours:=>Duration}",
+				"Please Set a {Lembrete:=>ReminderEvent} {in 2 hours:=>Duration}",
+				"i'd like to set a {Lembrete:=>ReminderEvent} {in 2 hours:=>Duration}",
+				"Add a {lembrete:=>ReminderEvent}",
+				"i want to set a {lembrete:=>ReminderEvent} {in 2 hours:=>Duration}",
+				"{remind:=>ReminderEvent} me {in 1 and a half hours:=>Duration} ",
+				"Defina um {lembrete:=>ReminderEvent} {in 2 days:=>Duration}",
+				"Please Set a {lembrete:=>ReminderEvent} para {tuesday at 8 am:=>ReminderDateAndTime}",
+				"Defina um {lembrete:=>ReminderEvent} {for 3 minutes:=>Duration} please",
+				"Defina um {lembrete:=>ReminderEvent} para {the third tuesday of june:=>ReminderDateAndTime}",
+				"i'd like to add a {lembrete:=>ReminderEvent} para {Tuesday 18th of March 2020:=>ReminderDateAndTime}",
+				"save a {lembrete:=>ReminderEvent} para me {in 1 hour:=>Duration}",
+				"Add a {lembrete:=>ReminderEvent} para {friday 8 am:=>ReminderDateAndTime}",
+				"Crie um {lembrete:=>ReminderEvent} please",
+				"Você pode criar um {lembrete:=>ReminderEvent} {in one hour:=>Duration}",
+				"can you please create a {lembrete:=>ReminderEvent} at {4:30 pm:=>ReminderDateAndTime}",
+				"Crie um {lembrete:=>ReminderEvent} at {7:30 pm:=>ReminderDateAndTime}",
+				"please create a {lembrete:=>ReminderEvent} para {tuesday at 4:30 pm:=>ReminderDateAndTime}",
+				"i want to  set a {lembrete:=>ReminderEvent} para {9 a m:=>ReminderDateAndTime}",
+				"Add a {lembrete:=>ReminderEvent} para {Wednesday at 4:30 pm:=>ReminderDateAndTime}",
+				"Crie um {lembrete:=>ReminderEvent} para {9 a m:=>ReminderDateAndTime} thanks"
+			],
+        	"slots": [
+				{
+					"name": "ReminderEvent",
+					"required": false,
+					"type": "ReminderEvent",
+					"missingQuestion": ""
+				},
+        		{
+        			"name": "ReminderDateAndTime",
+        			"required": false,
+        			"type": "snips/datetime",
+        			"missingQuestion": ""
+        		},
+				{
+        			"name": "Duration",
+        			"required": false,
+        			"type": "snips/duration",
+        			"missingQuestion": ""
+        		}
+			]
+        },
+        {
+        	"name": "ReminderTime",
+        	"enabledByDefault": false,
+        	"utterances": [
+				"{30 minutos:=>Duration}",
+				"maybe in about {30 minutes:=>Duration}",
+				"in about {2 minutes:=>Duration}",
+				"{3 minutes:=>Duration} should do it",
+				"{for 10 minutes:=>Duration}",
+				"{in 3 minutes:=>Duration}",
+				"in {5 minutes:=>Duration}",
+				"{for 2 hours:=>Duration}",
+				"{in 1 hour:=>Duration} thanks",
+				"{for 1 hour:=>Duration} please",
+				"{3 hours:=>Duration}",
+				"{Saturday at 9am:=>ReminderDateAndTime}",
+				"For {Monday at 9 a m:=>ReminderDateAndTime}",
+				"{Tuesday 18th of March 2020:=>ReminderDateAndTime}",
+				"{at ten in the morning:=>ReminderDateAndTime}",
+				"{at 5 p m:=>ReminderDateAndTime}",
+				"{for ten o'clock:=>ReminderDateAndTime}"
+			],
+        	"slots": [
+        		{
+        			"name": "ReminderDateAndTime",
+        			"required": false,
+					"type": "snips/datetime",
+					"missingQuestion": ""
+				},
+				{
+					"name": "Duration",
+					"required": false,
+					"type": "snips/duration",
+					"missingQuestion": ""
+				}
+			]
+        },
+		{
+			"name": "ReminderStop",
+			"enabledByDefault": true,
+			"utterances": [
+				"{cancele:=>Stop} um {lembrete:=>ReminderStop}",
+				"{cancele:=>Stop} um dos meus {lembretes:=>ReminderStop}",
+				"{pare:=>Stop} {lembrete:=>ReminderStop}",
+				"Você pode {cancelar:=>Stop} meu {lembrete:=>ReminderStop} please",
+				"{pare:=>Stop} o {lembrete:=>ReminderStop} corrente",
+				"{pare:=>Stop} o {lembrete:=>ReminderStop} atual",
+				"{pare:=>Stop} meus {lembretes:=>ReminderStop}",
+				"{pare:=>Stop} meu {lembrete:=>ReminderStop}",
+				"{cancele:=>Stop} o atual {lembrete:=>ReminderStop}",
+				"{cancele:=>Stop} a {timer:=>TimerStop}",
+				"{cancele:=>Stop} one of my {timers:=>TimerStop}",
+				"{pare:=>Stop} {timer:=>TimerStop}",
+				"Can you {cancelar:=>Stop} a {timer:=>TimerStop} please",
+				"{pare:=>Stop} a current {timer:=>TimerStop}",
+				"{pare:=>Stop} the {timer:=>TimerStop}",
+				"{pare:=>Stop} my {timers:=>TimerStop}",
+				"{cancel:=>Stop} the current {timer:=>TimerStop}",
+				"{cancele:=>Stop} o {alarme:=>AlarmStop}",
+				"{cancele:=>Stop} um dos meus {alarmes:=>AlarmStop}",
+				"{pare:=>Stop} {alarm:=>AlarmStop}",
+				"Você pode {cancelar:=>Stop} meu {alarme:=>AlarmStop} por favor",
+				"{pare:=>Stop} a current {alarm:=>AlarmStop}",
+				"{pare:=>Stop} my {alarms:=>AlarmStop}",
+				"{pare:=>Stop} the {alarm:=>AlarmStop}",
+				"{cancel:=>Stop} the current {alarm:=>AlarmStop}"
+			],
+			"slots": [
+				{
+					"name": "Stop",
+					"required": false,
+					"type": "StopEvent",
+					"missingQuestion": ""
+				},
+				{
+					"name": "TimerStop",
+					"required": false,
+					"type": "TimerEvent",
+					"missingQuestion": ""
+				},
+				{
+					"name": "ReminderStop",
+					"required": false,
+					"type": "ReminderEvent",
+					"missingQuestion": ""
+				},
+				{
+					"name": "AlarmStop",
+					"required": false,
+					"type": "AlarmEvent",
+					"missingQuestion": ""
+				}
+			]
+		},
+		{
+			"name": "ReminderRemaining",
+			"enabledByDefault": true,
+			"utterances": [
+				"{how long:=>ReminderRemainingTime} is left on my {lembrete:=>ReminderSlot}",
+				"What time is {remaining:=>ReminderRemainingTime} on the {lembrete:=>ReminderSlot}",
+				"what {time's left:=>ReminderRemainingTime} on the {lembrete:=>ReminderSlot}",
+				"how much time is {remaining:=>ReminderRemainingTime} on my {reminders:=>ReminderSlot}",
+				"{how long:=>ReminderRemainingTime} is {remaining:=>ReminderRemainingTime} on my {lembrete:=>ReminderSlot}",
+				"{how long:=>TimerRemainingTime} is left on my {timer:=>TimerSlot}",
+				"What time is {remaining:=>TimerRemainingTime} on the {timer:=>TimerSlot}",
+				"what {time's left:=>TimerRemainingTime} on the {timer:=>TimerSlot}",
+				"how much time is {remaining:=>TimerRemainingTime} on my {timer:=>TimerSlot}",
+				"{how long:=>AlarmRemainingTime} is {remaining:=>AlarmRemainingTime} on my {alarm:=>AlarmSlot}",
+				"{how long:=>AlarmRemainingTime} is left on my {alarm:=>AlarmSlot}",
+				"What time is {remaining:=>AlarmRemainingTime} on the {alarm:=>AlarmSlot}",
+				"what {time's left:=>AlarmRemainingTime} on the {alarm:=>AlarmSlot}",
+				"how much time is {remaining:=>AlarmRemainingTime} on my {alarm:=>AlarmSlot}"
+			],
+			"slots": [
+				{
+					"name": "ReminderRemainingTime",
+					"required": false,
+					"type": "ReminderRemainingTime",
+					"missingQuestion": ""
+				},
+				{
+					"name": "TimerSlot",
+					"required": false,
+					"type": "TimerEvent",
+					"missingQuestion": ""
+				},
+				{
+					"name": "TimerRemainingTime",
+					"required": false,
+					"type": "ReminderRemainingTime",
+					"missingQuestion": ""
+				},
+				{
+					"name": "AlarmSlot",
+					"required": false,
+					"type": "AlarmEvent",
+					"missingQuestion": ""
+				},
+				{
+					"name": "AlarmRemainingTime",
+					"required": false,
+					"type": "ReminderRemainingTime",
+					"missingQuestion": ""
+				},
+				{
+					"name": "ReminderSlot",
+					"required": false,
+					"type": "ReminderEvent",
+					"missingQuestion": ""
+				}
+			]
+		},
+		{
+			"name": "ReminderDelete",
+			"enabledByDefault": true,
+			"utterances": [
+				"{delete:=>ReminderDelete} my {lembrete:=>ReminderSlot}",
+				"{remove:=>ReminderDelete} a {lembrete:=>ReminderSlot}",
+				"{delete all:=>ReminderDeleteAll} of the {lembrete:=>ReminderSlot}",
+				"can you{delete all:=>ReminderDeleteAll} of my {reminders:=>ReminderSlot} please",
+				"{delete all:=>ReminderDeleteAll} current {reminders:=>ReminderSlot}",
+				"{remove all:=>ReminderDeleteAll} of my {reminders:=>ReminderSlot}",
+				"{remove all:=>ReminderDeleteAll} of the {reminders:=>ReminderSlot}",
+				"can you {cancel:=>ReminderDelete} my {reminders:=>ReminderSlot} please",
+				"{remove all:=>ReminderDeleteAll} current {reminders:=>ReminderSlot}",
+				"{delete:=>ReminderDelete} my {timer:=>TimerSlot}",
+				"{remove:=>ReminderDelete} a {timer:=>TimerSlot}",
+				"{delete all:=>ReminderDeleteAll} of the {timer:=>TimerSlot}",
+				"can you {delete all:=>ReminderDeleteAll} of my {timers:=>TimerSlot} please",
+				"{delete all:=>ReminderDeleteAll} current {timers:=>TimerSlot}",
+				"{remove all:=>ReminderDeleteAll} of my {timers:=>TimerSlot}",
+				"{remove all:=>ReminderDeleteAll} of the {timers:=>TimerSlot}",
+				"can you {cancel:=>ReminderDelete} my {timers:=>TimerSlot} please",
+				"{remove all:=>ReminderDeleteAll} current {timers:=>TimerSlot}",
+				"{delete:=>ReminderDelete} my {alarm:=>AlarmSlot}",
+				"{remove:=>ReminderDelete} a {alarm:=>AlarmSlot}",
+				"{delete all:=>ReminderDeleteAll} of the {alarm:=>AlarmSlot}",
+				"can you {delete all:=>ReminderDeleteAll} of my {alarms:=>AlarmSlot} please",
+				"{remove all:=>ReminderDeleteAll} of my {alarms:=>AlarmSlot}",
+				"{remove all:=>ReminderDeleteAll} of the {alarms:=>AlarmSlot}",
+				"você pode {cancelar:=>ReminderDelete} my {alarms:=>AlarmSlot} please",
+				"{remova todos:=>ReminderDeleteAll} {alarms:=>AlarmSlot} atuais",
+				"{deletar todos:=>ReminderDeleteAll} {alarmes:=>AlarmSlot} atuais"
+			],
+			"slots": [
+				{
+					"name": "ReminderDelete",
+					"required": false,
+					"type": "ReminderDelete",
+					"missingQuestion": ""
+				},
+				{
+					"name": "ReminderDeleteAll",
+					"required": false,
+					"type": "ReminderDeleteAll",
+					"missingQuestion": ""
+				},
+				{
+					"name": "ReminderSlot",
+					"required": false,
+					"type": "ReminderEvent",
+					"missingQuestion": ""
+				},
+				{
+					"name": "TimerSlot",
+					"required": false,
+					"type": "TimerEvent",
+					"missingQuestion": ""
+				},
+				{
+					"name": "AlarmSlot",
+					"required": false,
+					"type": "AlarmEvent",
+					"missingQuestion": ""
+				}
+			]
+		},
+		{
+			"name": "ChooseListItem",
+			"enabledByDefault": false,
+			"utterances": [
+				"lembrete {um:=>Number}",
+				"lembrete {dois:=>Number}",
+				"lembrete {4:=>Number}",
+				"lembrete {3:=>Number}",
+				"cronômetro número{2:=>Number}",
+				"cronômetro {2:=>Number}",
+				"cronômetro número {três:=>Number}",
+				"Lembrete número {10:=>Number}",
+				"item número {quatro:=>Number}",
+				"alarme número {2:=>Number}",
+				"alarme {2:=>Number}",
+				"alarme número {três:=>Number}",
+				"alarme número {10:=>Number}",
+				"alarme número {quatro:=>Number}"
+			],
+			"slots": [
+				{
+					"name": "Number",
+					"required": false,
+					"type": "snips/number",
+					"missingQuestion": ""
+				}
+			]
+		}
+    ]
+}
