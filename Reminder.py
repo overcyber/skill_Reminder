@@ -394,8 +394,9 @@ class Reminder(AliceSkill):
 
 
 	# This returns the amount of rows in the database table
+	# TODO: this should not be used for calculating the index, but returned by the db on insert!
 	def tableRowCount(self) -> int:
-		return self.databaseFetch(tableName=self._activeDataBase, query='SELECT COUNT () FROM :__table__')[0]
+		return self.databaseFetch(tableName=self._activeDataBase, query='SELECT COUNT () AS c FROM :__table__')[0]['c']
 
 
 	# This updates the internalID value to match table rowid
