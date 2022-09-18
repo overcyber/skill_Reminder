@@ -1,0 +1,152 @@
+{
+	"respondTimeRemaining": {
+		"default": [
+			"Há {0} tempo restante nisso {1}.",
+			"Por favor, espere um pouco enquanto eu verifico. Parece que você deixou {0} nesse {1}.",
+			"Você tem um total geral de {0} restantes nesse {1}.",
+			"Para isso, {1} você ainda tem {0} para terminar. Não se preocupe, vou mantê-lo atualizado!"
+		],
+		"short": [
+			"{0}.",
+			"De {1} há {0} restante."
+		]
+	},
+	"respondDeleteAll": {
+		"default": [
+			"Não se preocupe, eu excluí o {} para você!",
+			"Tudo organizado, limpo todos os seus {} como se ninguém estivesse aqui.",
+			"As mesas estão limpam mestre. Não há mais {} armazenados!",
+			"{} foi excluído. Trabalho doméstico feito. Acho que vou polir meus resistores agora."
+		],
+		"short": [
+			"Como Ordenado!",
+			"Concluido!"
+		]
+	},
+	"respondDelete": {
+		"default": [
+			"Não se preocupe, eu excluí isso {} para você.",
+			"Tudo classificado, limpo seu {} como se ninguém estivesse aqui.",
+			"Uau, eu não apenas excluí, mas enviei o {}  em uma missão para Marte.",
+			"Parece que fiz isso corretamente. Isso {} não está lá agora."
+		],
+		"short": [
+			"Como Ordenado!",
+			"Concluido!"
+		]
+	},
+	"respondFoodTimer": {
+		"default": [
+			"Ei chef, estamos no meio do cronômetro. É hora de verificar sua comida!",
+			"Atenção Chef. Verifique se a comida precisa ser mexida ou virada.",
+			"Toque, toque, toque.<break time=\"250ms\"/> Não sei se este microfone está funcionando.<break time=\"150ms\"/>Ummmm Atenção, clientes, verificação de comida na mesa da cozinha, por favor!",
+			"Estou sentindo o cheiro de algo queimando? Talvez me pague para ir verificar sua comida agora, chef."
+		],
+		"short": [
+			"Verifique sua comida!",
+			"Verificação de comida, na cozinha!"
+		]
+	},
+	"respondToANoReply": {
+		"default": [
+			"ok, vou voltar a tirar o pó da minha placa de circuito e esquecer isso {} ...",
+			"Claro, estou esquecendo que você até disse uma palavra ...",
+			"Ok, estou ocupada esquentando um raspberry pi de qualquer maneira!"
+		],
+		"short": [
+			"ok, esquecido!",
+			"Certo!"
+		]
+	},
+	"respondSetReminder": {
+		"default": [
+			"O lembrete foi definido para {}.",
+			"Vou lembrá-lo em {0} sobre o lembrete {1}."
+		],
+		"short": [
+			"O lembrete está definido.",
+			"Como Ordenado!!"
+		]
+	},
+	"respondReminderMessage": {
+		"default": [
+			"Que mensagem você gostaria que eu deixasse para este {}?",
+			"Que tópico você gostaria que eu chame de {}?"
+		],
+		"short": [
+			"qual é a mensagem?",
+			"qual é a {} mensagem?"
+		]
+	},
+	"respondSetDuration": {
+		"default": [
+			"Para que horas você deseja que o {} seja definido?",
+			"Quando você deseja que o {} ocorra novamente?"
+		],
+		"short": [
+			"Para quando?",
+			"Para que hora ou data?"
+		]
+	},
+	"respondReminder": {
+		"default": [
+			"Você tem um {0} com a mensagem, \"{1}\".",
+			"Este é o seu {0} para, \"{1}\"."
+		],
+		"short": [
+			"Lembrete {}."
+		]
+	},
+	"respondConfirmed": {
+		"default": [
+			"Acabei de definir esse {0} para você com o tópico de, \"{1}\". Você ouvirá de mim novamente em {2}.",
+			"Eu vou te lembrar de, \"{1}\" no {2}."
+		],
+		"short": [
+			"O lembrete {0} está definido."
+		]
+	},
+	"respondNoActive": {
+		"default": [
+			"No momento você não tem {} ativos."
+		],
+		"short": [
+			"Você não tem nenhum."
+		]
+	},
+	"respondNoNumber": {
+		"default": [
+			"Eu não ouvi um número. Por favor, tente novamente.",
+			"Tem certeza que isso é um número ? Repita novamente por favor"
+		],
+		"short": [
+			"Repita o número."
+		]
+	},
+	"respondAskConfirmation": {
+		"default": [
+			"Tem certeza de que deseja excluir todos os seus {}?"
+		],
+		"short": [
+			"Tem certeza?"
+		]
+	},
+	"respondListOfItems": {
+		"default": [
+			"Repita o número do item que você deseja que eu trabalhe na lista a seguir. {0}",
+			"Tudo bem. Escolha um número na lista a seguir. {0}"
+		],
+		"short": [
+			"Escolha a partir desta lista {0}"
+		]
+	},
+	"databaseError": {
+		"default": [
+			"Desculpe, não consigo me lembrar desse.",
+			"Oh não, eu não sou capaz de lembrar isso para você."
+		],
+		"short": [
+			"Não consigo me lembrar desse..."
+		]
+	}
+}

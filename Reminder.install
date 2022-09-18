@@ -16,7 +16,8 @@
     "conditions": {
         "lang": [
             "en",
-            "de"
+            "de",
+	    "pt"
         ],
         "asrArbitraryCapture": true
     }
