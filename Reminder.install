@@ -1,7 +1,7 @@
 {
     "name": "Reminder",
     "speakableName": "Reminder skill",
-    "version": "1.2.6",
+    "version": "1.2.7",
     "icon": "fas fa-hourglass-half",
     "category": "organisation",
     "author": "Lazza",

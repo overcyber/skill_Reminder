@@ -81,3 +81,5 @@ To activate any of these try saying sentences such as the below. or variations o
 - "I'm making a cup of tea"
 - "tell me when to stop washing my hands"
 - "we're brushing our teeth"
+
+NOTE: This skill does not work well with dialogView (yet). Please use voice commands as much as possible
