@@ -19,6 +19,47 @@
 			]
 		},
 		{
+			"name": "PreDefinedTimer",
+			"matchingStrictness": null,
+			"automaticallyExtensible": true,
+			"useSynonyms": true,
+			"values": [
+				{
+					"value": "wash hands",
+					"synonyms": [
+						"washing hands",
+						"washing my hands",
+						"washing our hands",
+						"clean hands",
+						"cleaning hands",
+						"cleaning my hands",
+						"cleaning our hands"
+					]
+				},
+				{
+					"value": "brush teeth",
+					"synonyms": [
+						"brushing teeth",
+						"brushing my teeth",
+						"brushing our teeth"
+					]
+				},
+				{
+					"value": "cup of tea",
+					"synonyms": [
+						"tea time",
+						"short tea"
+					]
+				},
+				{
+					"value": "pot of tea",
+					"synonyms": [
+						"long tea"
+					]
+				}
+			]
+		},
+		{
 			"name": "AlarmEvent",
 			"matchingStrictness": null,
 			"automaticallyExtensible": true,
