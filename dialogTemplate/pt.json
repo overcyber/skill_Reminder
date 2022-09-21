@@ -39,22 +39,24 @@
 				{
 					"value": "brush teeth",
 					"synonyms": [
-						"brushing teeth",
-						"brushing my teeth",
-						"brushing our teeth"
+						"escovar os dentes",
+						"escovar meus dentes",
+						"escovar nossos dentes",
+						"escovando os dentes "
 					]
 				},
 				{
 					"value": "cup of tea",
 					"synonyms": [
-						"tea time",
-						"short tea"
+						"hora do chá",
+						"breve chá"
 					]
 				},
 				{
 					"value": "pot of tea",
 					"synonyms": [
-						"long tea"
+						"longo chá",
+						"chá da tarde"
 					]
 				}
 			]
@@ -87,7 +89,8 @@
 					"value": "timer",
 					"synonyms": [
 						"Cronômetro",
-						"cronômetros"
+						"cronômetros",
+						"timer"
 					]
 				}
 			]
@@ -267,13 +270,13 @@
 				"Defina um {alarme:=>AlarmEvent} em {10 minutos:=>Duration}",
 				"Defina um {alarme:=>AlarmEvent} para {10 minutos:=>Duration}",
 				"Crie um {Alarme:=>AlarmEvent} para {20 minutos:=>Duration} por favor",
-				"Defina um {15 minute:=>Duration} {alarm:=>AlarmEvent} please",
+				"Defina um {15 minute:=>Duration} {alarm:=>AlarmEvent} por favor",
 				"Defina um {alarme:=>AlarmEvent} para {terça-feira as 8 am:=>AlarmDateAndTime}",
 				"Defina um {alarme:=>AlarmEvent} para {10 minutos:=>AlarmDateAndTime}",
 				"Adicione {20 minutos:=>AlarmDateAndTime} ao {alarme:=>AlarmEvent}",
 				"crie um {alarme:=>AlarmEvent} para {2 pm:=>AlarmDateAndTime}",
 				"Adicione um {alarme:=>AlarmEvent} para {4 pm:=>AlarmDateAndTime}",
-				"{me acorde:=>AlarmEvent} em {20 minutos:=>Duration} please",
+				"{me acorde:=>AlarmEvent} em {20 minutos:=>Duration} por favor",
 				"por favor {me acorde:=>AlarmEvent} em {20 minutos:=>Duration}"
 			],
 			"slots": [
@@ -301,11 +304,11 @@
 			"name": "PreDefinedTimerEvent",
 			"enabledByDefault": true,
 			"utterances": [
-				"Time to {brush teeth:=>PreDefinedTimer}",
-				"It's {pot of tea:=>PreDefinedTimer} time",
-				"I'm making a {cup of tea:=>PreDefinedTimer}",
-				"tell me when to stop {washing hands:=>PreDefinedTimer}",
-				"we're {brushing our teeth:=>PreDefinedTimer}"
+				"Hora de {escovar os dentes :=>PreDefinedTimer}",
+				"É Tempo de tomar um {longo chá:=>PreDefinedTimer} ",
+				"Estou fazendo um {breve chá:=>PreDefinedTimer}",
+				"me diga quando parar e {lavar as mãos:=>PreDefinedTimer}",
+				"nós estamos {escovando os dentes:=>PreDefinedTimer}"
 			],
 			"slots": [
 				{
@@ -320,11 +323,11 @@
 			"name": "SetUpTimer",
 			"enabledByDefault": true,
 			"utterances": [
-				"Defina um {timer:=>TimerEvent} para {1 hora:=>Duration}",
-				"Defina um {timer:=>TimerEvent} para {1 minuto:=>Duration}",
-				"Você pode criar um {timer:=>TimerEvent} para {3 hours:=>Duration} please",
+				"Defina um {cronometro :=>TimerEvent} para {1 hora:=>Duration}",
+				"Defina um {timer :=>TimerEvent} para {1 minuto:=>Duration}",
+				"Você pode criar um {timer:=>TimerEvent} para {3 hours:=>Duration} por favor",
 				"Defina um {timer:=>TimerEvent} in {10 minutos:=>Duration}",
-				"Crie um {timer:=>TimerEvent} para {20 minutos:=>Duration} please",
+				"Crie um {timer:=>TimerEvent} para {20 minutos:=>Duration} por favor",
 				"Defina um {food:=>Food} {timer:=>TimerEvent} para {20 minutos:=>Duration}",
 				"Defina um {pizza:=>Food} {timer:=>TimerEvent} para {20 minutos:=>Duration}",
 				"Crie um {timer:=>TimerEvent} de {comida:=>Food}  para {5 minutos:=>Duration} por favor",
@@ -339,8 +342,8 @@
 				"Defina um {short:=>ShortTimer} {timer:=>TimerEvent} para {5 minutos:=>Duration}",
 				"Crie um {short:=>ShortTimer} {timer:=>TimerEvent} para {7 minutos:=>Duration}",
 				"Defina um {quick:=>ShortTimer} {timer:=>TimerEvent} para {3 minutos:=>Duration}",
-				"Defina um {simple:=>ShortTimer} {timer:=>TimerEvent} para {7 minutos:=>Duration} please",
-				"add a {breif:=>ShortTimer} {timer:=>TimerEvent} para {7 minutos:=>Duration} please"
+				"Defina um {simple:=>ShortTimer} {timer:=>TimerEvent} para {7 minutos:=>Duration} por favor",
+				"add a {breif:=>ShortTimer} {timer:=>TimerEvent} para {7 minutos:=>Duration} por favor"
 			],
 			"slots": [
 				{
