@@ -88,7 +88,7 @@
 				{
 					"value": "timer",
 					"synonyms": [
-						"Cronômetro",
+						"cronômetro",
 						"cronômetros",
 						"timer"
 					]
@@ -107,7 +107,9 @@
 						"pizza",
 						"galinha",
 						"frango frito",
-						"lazanha"
+						"lazanha",
+						"comida",
+						"lanche"
 					]
 				}
 			]
@@ -251,8 +253,11 @@
                 {
                     "value": "remaining",
                     "synonyms": [
-                        "falta tempo",
-						"quanto tempo"
+                        "tempo falta",
+						"quanto tempo",
+						"resta",
+						"faltando",
+						"restante"
 					]
                 }
             ]
@@ -263,7 +268,7 @@
 			"name": "SetUpAlarm",
 			"enabledByDefault": true,
 			"utterances": [
-				"Defina um {Alarme:=>AlarmEvent} para {1 hora:=>Duration}",
+				"Defina um {alarme:=>AlarmEvent} para {1 hora:=>Duration}",
 				"Defina um {alarme:=>AlarmEvent} para {1 minuto:=>Duration}",
 				"Você pode criar um {Alarme:=>AlarmEvent} para {3 horas:=>Duration} por favor",
 				"Você pode criar um {Alarme:=>AlarmEvent} para {3 horas:=>Duration}",
@@ -323,27 +328,30 @@
 			"name": "SetUpTimer",
 			"enabledByDefault": true,
 			"utterances": [
-				"Defina um {cronometro :=>TimerEvent} para {1 hora:=>Duration}",
+				"Defina um {cronômetro :=>TimerEvent} para {1 hora:=>Duration}",
 				"Defina um {timer :=>TimerEvent} para {1 minuto:=>Duration}",
 				"Você pode criar um {timer:=>TimerEvent} para {3 hours:=>Duration} por favor",
 				"Defina um {timer:=>TimerEvent} in {10 minutos:=>Duration}",
 				"Crie um {timer:=>TimerEvent} para {20 minutos:=>Duration} por favor",
-				"Defina um {food:=>Food} {timer:=>TimerEvent} para {20 minutos:=>Duration}",
-				"Defina um {pizza:=>Food} {timer:=>TimerEvent} para {20 minutos:=>Duration}",
+				"Defina um {timer:=>TimerEvent} de {comida:=>Food}  para {20 minutos:=>Duration}",
+				"Defina um {timer:=>TimerEvent} da {pizza:=>Food} para {20 minutos:=>Duration}",
 				"Crie um {timer:=>TimerEvent} de {comida:=>Food}  para {5 minutos:=>Duration} por favor",
 				"Crie um {timer:=>TimerEvent} de {comida:=>Food}  para {5 minutos:=>Duration}",
-				"Defina um {timer:=>TimerEvent} de {food:=>Food} para {15 minutos:=>Duration} por favor",
-				"Defina um {timer:=>TimerEvent} de {food:=>Food} para {15 minutos:=>Duration} ",
-				"Defina um {Timer:=>TimerEvent} para {tuesday at 8 am:=>TimerDateAndTime}",
-				"Defina um {Timer:=>TimerEvent} para {10 minutos:=>TimerDateAndTime}",
-				"Add a {20 minutos:=>TimerDateAndTime} {Timer:=>TimerEvent}",
-				"Crie um {Timer:=>TimerEvent} para {2 pm:=>TimerDateAndTime}",
-				"Add a {Timer:=>TimerEvent} para {4pm:=>TimerDateAndTime}",
-				"Defina um {short:=>ShortTimer} {timer:=>TimerEvent} para {5 minutos:=>Duration}",
-				"Crie um {short:=>ShortTimer} {timer:=>TimerEvent} para {7 minutos:=>Duration}",
-				"Defina um {quick:=>ShortTimer} {timer:=>TimerEvent} para {3 minutos:=>Duration}",
-				"Defina um {simple:=>ShortTimer} {timer:=>TimerEvent} para {7 minutos:=>Duration} por favor",
-				"add a {breif:=>ShortTimer} {timer:=>TimerEvent} para {7 minutos:=>Duration} por favor"
+				"Defina um {timer:=>TimerEvent} de {comida:=>Food} para {15 minutos:=>Duration} por favor",
+				"Defina um {timer:=>TimerEvent} de {comida:=>Food} para {15 minutos:=>Duration} ",
+				"Defina um {cronômetro:=>TimerEvent} para {terça-feira às 8 am:=>TimerDateAndTime}",
+				"Defina um {timer:=>TimerEvent} para {10 minutos:=>TimerDateAndTime}",
+				"Adicione um {timer:=>TimerEvent} de {20 minutos:=>TimerDateAndTime} ",
+				"Crie um {timer:=>TimerEvent} para {2 pm:=>TimerDateAndTime}",
+				"Add a {Timer:=>TimerEvent} para {4 pm:=>TimerDateAndTime}",
+				"Defina um {rapido:=>ShortTimer} {cronômetro:=>TimerEvent} para {5 minutos:=>Duration}",
+				"Defina um {curto:=>ShortTimer} {timer:=>TimerEvent} para {5 minutos:=>Duration}",
+				"Defina um {rapido:=>ShortTimer} {timer:=>TimerEvent} para {5 minutos:=>Duration}",
+				"Crie um {timer:=>TimerEvent} {curto:=>ShortTimer} para {7 minutos:=>Duration}",
+				"Defina um {rapido:=>ShortTimer} {timer:=>TimerEvent} para {3 minutos:=>Duration}",
+				"Defina um {simples:=>ShortTimer} {timer:=>TimerEvent} para {7 minutos:=>Duration} por favor",
+				"Adicione um {simples:=>ShortTimer} {timer:=>TimerEvent} para {7 minutos:=>Duration} por favor"
+
 			],
 			"slots": [
 				{
@@ -529,20 +537,21 @@
 			"name": "ReminderRemaining",
 			"enabledByDefault": true,
 			"utterances": [
-				"{how long:=>ReminderRemainingTime} is left on my {lembrete:=>ReminderSlot}",
-				"What time is {remaining:=>ReminderRemainingTime} on the {lembrete:=>ReminderSlot}",
-				"what {time's left:=>ReminderRemainingTime} on the {lembrete:=>ReminderSlot}",
-				"how much time is {remaining:=>ReminderRemainingTime} on my {reminders:=>ReminderSlot}",
-				"{how long:=>ReminderRemainingTime} is {remaining:=>ReminderRemainingTime} on my {lembrete:=>ReminderSlot}",
-				"{how long:=>TimerRemainingTime} is left on my {timer:=>TimerSlot}",
-				"What time is {remaining:=>TimerRemainingTime} on the {timer:=>TimerSlot}",
-				"what {time's left:=>TimerRemainingTime} on the {timer:=>TimerSlot}",
-				"how much time is {remaining:=>TimerRemainingTime} on my {timer:=>TimerSlot}",
-				"{how long:=>AlarmRemainingTime} is {remaining:=>AlarmRemainingTime} on my {alarm:=>AlarmSlot}",
-				"{how long:=>AlarmRemainingTime} is left on my {alarm:=>AlarmSlot}",
-				"What time is {remaining:=>AlarmRemainingTime} on the {alarm:=>AlarmSlot}",
-				"what {time's left:=>AlarmRemainingTime} on the {alarm:=>AlarmSlot}",
-				"how much time is {remaining:=>AlarmRemainingTime} on my {alarm:=>AlarmSlot}"
+				"{quanto tempo:=>ReminderRemainingTime}foi deixado em meu {lembrete:=>ReminderSlot}",
+				"Quanto tempo {falta:=>ReminderRemainingTime} em meu {lembrete:=>ReminderSlot}",
+				"Quanto tempo {falta:=>ReminderRemainingTime} no meu {lembrete:=>ReminderSlot}",
+				"qual o tempo {restante:=>ReminderRemainingTime} no meu {lembrete:=>ReminderSlot}",
+				"quanto tempo {falta:=>ReminderRemainingTime} no meu{lembrete:=>ReminderSlot}",
+				"{quanto tempo:=>ReminderRemainingTime} {falta:=>ReminderRemainingTime} para meu {lembrete:=>ReminderSlot}",
+				"{quanto tempo:=>TimerRemainingTime}foi deixado em meu{timer:=>TimerSlot}",
+				"Quanto tempo {falta:=>TimerRemainingTime} no meu {timer:=>TimerSlot}",
+				"Qual tempo {restante:=>TimerRemainingTime} em meu {timer:=>TimerSlot}",
+				"quanto tempo está {faltando:=>TimerRemainingTime} no meu {timer:=>TimerSlot}",
+				"{quanto tempo:=>AlarmRemainingTime} tem {faltando:=>AlarmRemainingTime} no meu {alarme:=>AlarmSlot}",
+				"{quanto tempo:=>AlarmRemainingTime}foi deixado em meu{alarme:=>AlarmSlot}",
+				"Quanto tempo {falta:=>AlarmRemainingTime} no meu{alarme:=>AlarmSlot}",
+				"Qual o tempo {restante:=>AlarmRemainingTime} para meu {alarme:=>AlarmSlot}",
+				"quanto tempo tem {faltando:=>AlarmRemainingTime} no meu {alarme:=>AlarmSlot}"
 			],
 			"slots": [
 				{
