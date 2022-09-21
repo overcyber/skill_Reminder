@@ -148,6 +148,11 @@
 	"short": [
 	  "tea is ready"
 	]
-  }
+  },
+	"systemMessage3": {
+		"default": [
+			"Etwas ging schief Dekodierungszeit"
+		]
+	}
 }
 

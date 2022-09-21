@@ -148,5 +148,10 @@
 		"short": [
 			"Não consigo me lembrar desse..."
 		]
+	},
+	"systemMessage3": {
+		"default": [
+			"Algo correu mal a descodução do tempo."
+		]
 	}
 }

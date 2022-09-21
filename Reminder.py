@@ -1,3 +1,5 @@
+
+
 import time
 
 from datetime import datetime, timedelta
@@ -137,7 +139,6 @@ class Reminder(AliceSkill):
 		self.ThreadManager.doLater(
 			interval=0.5,
 			func=self.say(
-				text='Your short timer has finished'
 			),
 		)
 
@@ -294,7 +295,7 @@ class Reminder(AliceSkill):
 			minutes = int(minute)
 			seconds = int(second)
 		except ValueError:
-			self.logWarning(msg="Something went wrong decoding time")
+			self.logWarning(self.randomTalk(text="systemMessage3"))
 			hours = 0
 			minutes = 0
 			seconds = 60
@@ -555,7 +556,6 @@ class Reminder(AliceSkill):
 			else:
 				self.continueDialog(
 					sessionId=session.sessionId,
-					text='respondNoNumber',
 					intentFilter=[self._INTENT_SELECT_ITEM],
 					currentDialogState='askWhatItemFromList'
 				)

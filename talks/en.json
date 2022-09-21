@@ -1,178 +1,183 @@
 {
-	"respondTimeRemaining": {
-		"default": [
-			"There is {0} time left on that {1}.",
-			"Please hold the line while i check. Seems you have {0} left on that {1}.",
-			"You have a grand total of {0} left on that {1}.",
-			"For that {1} you have {0} left to go. Don't worry i'll keep you updated!"
-		],
-		"short": [
-			"{0}.",
-			"The {1} has {0} left."
-		]
-	},
-	"respondDeleteAll": {
-		"default": [
-			"No worries i have deleted the {}'s for you!",
-			"All sorted, cleaned up all of your {}'s like no one was here.",
-			"The tables clean captain. No more {}'s stored!",
-			"{}'s deleted. Housework done. Think i'll go polish my resistors now."
-		],
-		"short": [
-			"Sorted!",
-			"Done!"
-		]
-	},
-	"respondDelete": {
-		"default": [
-			"No worries I have deleted that {} for you.",
-			"All sorted, cleaned up your {}'s like no one was here.",
-			"Wow, I not only deleted that {} i sent it on a mission to mars.",
-			"Seems I did that correctly. That {} is not there now."
-		],
-		"short": [
-			"Sorted!",
-			"Done!"
-		]
-	},
-	"respondFoodTimer": {
-		"default": [
-			"Hey chef, we're half way through the timer. Time to check on your food!",
-			"Attention chef. Check on your food in case it needs stirred or turned.",
-			"Tap, tap, tap.<break time=\"250ms\"/> Don't know if this mic's working.<break time=\"150ms\"/>Ummmm Attention shoppers, foodcheck on isle 3 please!",
-			"Do I smell something burning? Might pay to go check on your food now chef."
-		],
-		"short": [
-			"Check your food!",
-			"Food check, isle 3!"
-		]
-	},
-	"respondToANoReply": {
-		"default": [
-			"ok I'll go back to dusting off my circuit board and forget about that {}...",
-			"Sure, I'm forgetting you even said a word...",
-			"Ok, I'm busy heating up a raspberry pie anyway!"
-		],
-		"short": [
-			"ok, forgotten!",
-			"Sure!"
-		]
-	},
-	"respondSetReminder": {
-		"default": [
-			"Reminder has been set for {}.",
-			"I will remind you on {0} about the reminder {1}."
-		],
-		"short": [
-			"Reminder is set.",
-			"Sorted!"
-		]
-	},
-	"respondReminderMessage": {
-		"default": [
-			"What message would you like me to set for this {}?",
-			"What topic would you like me to call this {}?"
-		],
-		"short": [
-			"whats the message?",
-			"what's the {} message?"
-		]
-	},
-	"respondSetDuration": {
-		"default": [
-			"What time do you want the {} set for?",
-			"When do you want the {} to re occur?"
-		],
-		"short": [
-			"For when?",
-			"For what time or date?"
-		]
-	},
-	"respondReminder": {
-		"default": [
-			"You have a {0} with the message, \"{1}\".",
-			"This is your {0} for, \"{1}\"."
-		],
-		"short": [
-			"Reminder {}."
-		]
-	},
-	"respondConfirmed": {
-		"default": [
-			"I've just set that {0} for you with the topic of, \"{1}\". You'll hear from me again in {2}.",
-			"I will remind you of, \"{1}\" in {2}."
-		],
-		"short": [
-			"Reminder {0} is set."
-		]
-	},
-	"respondNoActive": {
-		"default": [
-			"You currently have no active {}'s."
-		],
-		"short": [
-			"You have none."
-		]
-	},
-	"respondNoNumber": {
-		"default": [
-			"I didn't hear a number. Please try again."
-		],
-		"short": [
-			"Please repeat number."
-		]
-	},
-	"respondAskConfirmation": {
-		"default": [
-			"Are you sure you want to delete all of your {}'s?"
-		],
-		"short": [
-			"Are you sure?"
-		]
-	},
-	"respondListOfItems": {
-		"default": [
-			"Please repeat the number of the item you want me to work on from the following list. {0}",
-			"Alrighty. Choose a number from the following list. {0}"
-		],
-		"short": [
-			"Choose from this list {0}"
-		]
-	},
-	"databaseError": {
-		"default": [
-			"Sorry, I can't remember that one.",
-			"Oh no, I'm not able to remember that for you."
-		],
-		"short": [
-			"Can't remember that one..."
-		]
-	},
-	"brushingTeeth": {
-		"default": [
-			"Stop brushing your teeth now",
-			"Time to stop brushing your Teeth"
-		],
-		"short": [
-			"Stop"
-		]
-	},
-	"washingHands": {
-		"default": [
-			"Stop washing your hands now",
-			"Time to stop washing your hands"
-		],
-		"short": [
-			"Stop"
-		]
-	},
-	"teaReady": {
-		"default": [
-			"your {0} of tea is ready ",
-			"the {0} of tea is brewed to perfection now"
-		],
-		"short": [
-			"tea is ready"
-		]
-	}
+    "brushingTeeth": {
+        "default": [
+            "Stop brushing your teeth now",
+            "Time to stop brushing your Teeth"
+        ],
+        "short": [
+            "Stop"
+        ]
+    },
+    "databaseError": {
+        "default": [
+            "Sorry, I can't remember that one.",
+            "Oh no, I'm not able to remember that for you."
+        ],
+        "short": [
+            "Can't remember that one..."
+        ]
+    },
+    "respondAskConfirmation": {
+        "default": [
+            "Are you sure you want to delete all of your {}'s?"
+        ],
+        "short": [
+            "Are you sure?"
+        ]
+    },
+    "respondConfirmed": {
+        "default": [
+            "I've just set that {0} for you with the topic of, \"{1}\". You'll hear from me again in {2}.",
+            "I will remind you of, \"{1}\" in {2}."
+        ],
+        "short": [
+            "Reminder {0} is set."
+        ]
+    },
+    "respondDelete": {
+        "default": [
+            "No worries I have deleted that {} for you.",
+            "All sorted, cleaned up your {}'s like no one was here.",
+            "Wow, I not only deleted that {} i sent it on a mission to mars.",
+            "Seems I did that correctly. That {} is not there now."
+        ],
+        "short": [
+            "Sorted!",
+            "Done!"
+        ]
+    },
+    "respondDeleteAll": {
+        "default": [
+            "No worries i have deleted the {}'s for you!",
+            "All sorted, cleaned up all of your {}'s like no one was here.",
+            "The tables clean captain. No more {}'s stored!",
+            "{}'s deleted. Housework done. Think i'll go polish my resistors now."
+        ],
+        "short": [
+            "Sorted!",
+            "Done!"
+        ]
+    },
+    "respondFoodTimer": {
+        "default": [
+            "Hey chef, we're half way through the timer. Time to check on your food!",
+            "Attention chef. Check on your food in case it needs stirred or turned.",
+            "Tap, tap, tap.<break time=\"250ms\"/> Don't know if this mic's working.<break time=\"150ms\"/>Ummmm Attention shoppers, foodcheck on isle 3 please!",
+            "Do I smell something burning? Might pay to go check on your food now chef."
+        ],
+        "short": [
+            "Check your food!",
+            "Food check, isle 3!"
+        ]
+    },
+    "respondListOfItems": {
+        "default": [
+            "Please repeat the number of the item you want me to work on from the following list. {0}",
+            "Alrighty. Choose a number from the following list. {0}"
+        ],
+        "short": [
+            "Choose from this list {0}"
+        ]
+    },
+    "respondNoActive": {
+        "default": [
+            "You currently have no active {}'s."
+        ],
+        "short": [
+            "You have none."
+        ]
+    },
+    "respondNoNumber": {
+        "default": [
+            "I didn't hear a number. Please try again."
+        ],
+        "short": [
+            "Please repeat number."
+        ]
+    },
+    "respondReminder": {
+        "default": [
+            "You have a {0} with the message, \"{1}\".",
+            "This is your {0} for, \"{1}\"."
+        ],
+        "short": [
+            "Reminder {}."
+        ]
+    },
+    "respondReminderMessage": {
+        "default": [
+            "What message would you like me to set for this {}?",
+            "What topic would you like me to call this {}?"
+        ],
+        "short": [
+            "whats the message?",
+            "what's the {} message?"
+        ]
+    },
+    "respondSetDuration": {
+        "default": [
+            "What time do you want the {} set for?",
+            "When do you want the {} to re occur?"
+        ],
+        "short": [
+            "For when?",
+            "For what time or date?"
+        ]
+    },
+    "respondSetReminder": {
+        "default": [
+            "Reminder has been set for {}.",
+            "I will remind you on {0} about the reminder {1}."
+        ],
+        "short": [
+            "Reminder is set.",
+            "Sorted!"
+        ]
+    },
+    "respondTimeRemaining": {
+        "default": [
+            "There is {0} time left on that {1}.",
+            "Please hold the line while i check. Seems you have {0} left on that {1}.",
+            "You have a grand total of {0} left on that {1}.",
+            "For that {1} you have {0} left to go. Don't worry i'll keep you updated!"
+        ],
+        "short": [
+            "{0}.",
+            "The {1} has {0} left."
+        ]
+    },
+    "respondToANoReply": {
+        "default": [
+            "ok I'll go back to dusting off my circuit board and forget about that {}...",
+            "Sure, I'm forgetting you even said a word...",
+            "Ok, I'm busy heating up a raspberry pie anyway!"
+        ],
+        "short": [
+            "ok, forgotten!",
+            "Sure!"
+        ]
+    },
+    "systemMessage3": {
+        "default": [
+            "Something went wrong decoding time"
+        ]
+    },
+    "teaReady": {
+        "default": [
+            "your {0} of tea is ready ",
+            "the {0} of tea is brewed to perfection now"
+        ],
+        "short": [
+            "tea is ready"
+        ]
+    },
+    "washingHands": {
+        "default": [
+            "Stop washing your hands now",
+            "Time to stop washing your hands"
+        ],
+        "short": [
+            "Stop"
+        ]
+    }
 }
