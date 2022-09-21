@@ -139,6 +139,7 @@ class Reminder(AliceSkill):
 		self.ThreadManager.doLater(
 			interval=0.5,
 			func=self.say(
+				text='Your short timer has finished'
 			),
 		)
 
@@ -556,6 +557,7 @@ class Reminder(AliceSkill):
 			else:
 				self.continueDialog(
 					sessionId=session.sessionId,
+					text='respondNoNumber',
 					intentFilter=[self._INTENT_SELECT_ITEM],
 					currentDialogState='askWhatItemFromList'
 				)
