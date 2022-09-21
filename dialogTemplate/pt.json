@@ -49,14 +49,16 @@
 					"value": "cup of tea",
 					"synonyms": [
 						"hora do chá",
-						"breve chá"
+						"breve chá",
+						"chá no microondas"
 					]
 				},
 				{
 					"value": "pot of tea",
 					"synonyms": [
 						"longo chá",
-						"chá da tarde"
+						"chá da tarde",
+						"chá no fogão"
 					]
 				}
 			]
@@ -315,7 +317,10 @@
 			"utterances": [
 				"Hora de {escovar os dentes :=>PreDefinedTimer}",
 				"É Tempo de tomar um {longo chá:=>PreDefinedTimer} ",
-				"Estou fazendo um {breve chá:=>PreDefinedTimer}",
+				"Estou fazendo um {longo chá:=>PreDefinedTimer} ", 
+				"Estou fazendo um {chá no fogão:=>PreDefinedTimer}",
+				"Estou fazendo um {breve chá:=>PreDefinedTimer} ",
+				"Estou fazendo um {chá no microondas:=>PreDefinedTimer}",
 				"me diga quando parar e {lavar as mãos:=>PreDefinedTimer}",
 				"nós estamos {escovando os dentes:=>PreDefinedTimer}"
 			],
