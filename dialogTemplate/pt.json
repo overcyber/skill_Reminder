@@ -226,7 +226,6 @@
 				"Defina um {alarme:=>AlarmEvent} em {10 minutos:=>Duration}",
 				"Defina um {alarme:=>AlarmEvent} para {10 minutos:=>Duration}",
 				"Crie um {Alarme:=>AlarmEvent} para {20 minutos:=>Duration} por favor",
-				"Crie um {Alarme:=>AlarmEvent} para {20 minutos:=>Duration} por favor",
 				"Defina um {15 minute:=>Duration} {alarm:=>AlarmEvent} please",
 				"Defina um {alarme:=>AlarmEvent} para {terça-feira as 8 am:=>AlarmDateAndTime}",
 				"Defina um {alarme:=>AlarmEvent} para {10 minutos:=>AlarmDateAndTime}",
@@ -253,6 +252,25 @@
 					"name": "Duration",
 					"required": false,
 					"type": "snips/duration",
+					"missingQuestion": ""
+				}
+			]
+		},
+		{
+			"name": "PreDefinedTimerEvent",
+			"enabledByDefault": true,
+			"utterances": [
+				"Time to {brush teeth:=>PreDefinedTimer}",
+				"It's {pot of tea:=>PreDefinedTimer} time",
+				"I'm making a {cup of tea:=>PreDefinedTimer}",
+				"tell me when to stop {washing hands:=>PreDefinedTimer}",
+				"we're {brushing our teeth:=>PreDefinedTimer}"
+			],
+			"slots": [
+				{
+					"name": "PreDefinedTimer",
+					"required": false,
+					"type": "PreDefinedTimer",
 					"missingQuestion": ""
 				}
 			]
